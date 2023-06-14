@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow&family=Big+Shoulders+Display:wght@700&family=Inter:wght@400;700&family=Kanit:wght@300&family=Karla:wght@400;700&family=Labrada:ital,wght@1,300&family=Lexend+Deca&family=Nunito:ital,wght@1,200&family=Open+Sans&family=Playfair+Display:wght@900&family=Poppins&family=Quicksand:wght@300;500&family=Raleway:wght@400;700&family=Roboto+Mono:wght@700&family=Tilt+Neon&family=Titillium+Web:wght@700&family=Ubuntu:wght@700&display=swap');
+:root{
+  --blue-color: #0000ff;
+  --white-color: #ffffff;
+  --black-color: #000000;
+}
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html{
+  font-size: 62.5%;
+}
+body{
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-family: 'Kanit', sans-serif;
+}
+form{
+  margin-top: 30px;
+  margin-bottom: 20px;
+  max-width: 500px;
+  width: 100%;
+  border: 1px solid var(--black-color);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+form input{
+  display: block;
+  max-width: 450px;
+  width: 100%;
+  margin: 12px 0;
+  padding: 20px;
+  font-size: 2rem;
+  font-family: 'Kanit', sans-serif;
+}
+form input:focus{
+  outline: none;
+  border: 2px solid var(--blue-color);
+}
+h1{
+  font-size: 5rem;
+}
+form input::placeholder{
+  font-size: 2rem;
+  font-family: 'Kanit', sans-serif;
+}
+form input[type="submit"]{
+  border: none;
+  background-color: var(--blue-color);
+  color: var(--white-color);
+  cursor: pointer;
+  transition: all 0.3s linear;
+  font-weight: bold;
+  font-size: 2.2rem;
+}
+form input[type="submit"]:hover{
+  background-color: var(--white-color);
+  border: 1px solid var(--blue-color);
+  color: var(--black-color);
+}
+form p{
+  font-size: 2.2rem;
+  margin: 5px 0;
+}
+@media (max-width: 500px){
+  h1{
+    font-size:3.6rem;
+    text-align: center;
+  }
+  form{
+    width: 95%;
+    padding: 15px;
+  }
+}
