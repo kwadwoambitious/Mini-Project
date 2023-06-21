@@ -7,8 +7,10 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="home_page.css">
-  <title>Web Talk - Home</title>
+  <link rel="shortcut icon" href="favicon/favicon.ico" type="image/x-icon">
+  <title>Web Talk - Profile</title>
 </head>
 <body>
       <header>
@@ -24,10 +26,13 @@
       </header>
 
      <main>
-       <h1>Your Information</h1>
+       <h1 class="profile-h1">Your Information</h1>
        <div class="card">
-          <p>Full Name: <b><?php echo $_SESSION['full_name']?></b></p>
-          <p>Email Address: <b><?php echo $_SESSION['email']?></b></p>
+          <div>
+             <i class="fa-solid fa-user"></i>
+          </div>
+          <p>Full Name: <b><i><?php echo $_SESSION['full_name']?></i></b></p>
+          <p>Email Address: <b><i><?php echo $_SESSION['email']?></i></b></p>
           <form action="profile.php" method="post">
              <input type="submit" name="logout" id="logout" value="Logout" />
           </form>

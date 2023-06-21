@@ -104,12 +104,33 @@ main #create_post{
   font-family: 'Kanit', sans-serif;
   cursor: pointer;
 }
+.profile-h1{
+  font-size: 5rem;
+  text-align: center
+}
+.card{
+  border: 1px solid #0000ff;
+  max-width: 500px;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  padding: 35px 10px;
+  border-radius: 3px;
+}
+.card .fa-solid{
+  font-size: 6rem;
+  border: 1px solid black;
+  border-radius: 50%;
+  padding: 20px 25px;
+}
 .card #logout{
   background-color: red;
   border: none;
+  margin-top: 20px;
   padding: 15px 25px;
   font-size: 2.2rem;
   color: white;
   font-family: 'Kanit', sans-serif;
   cursor: pointer;
+  border-radius: 3px;
 }
