@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow&family=Big+Shoulders+Display:wght@700&family=Inter:wght@400;700&family=Kanit:wght@300&family=Karla:wght@400;700&family=Labrada:ital,wght@1,300&family=Lexend+Deca&family=Nunito:ital,wght@1,200&family=Open+Sans&family=Playfair+Display:wght@900&family=Poppins&family=Quicksand:wght@300;500&family=Raleway:wght@400;700&family=Roboto+Mono:wght@700&family=Tilt+Neon&family=Titillium+Web:wght@700&family=Ubuntu:wght@700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html{
+  scroll-behavior: smooth;
+  font-size: 62.5%;
+}
+body{
+  font-family: 'Kanit', sans-serif;
+}
+header{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 7px 0;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+  background-color: white;
+}
+header h1{
+  font-size: 5.5rem;
+  color: #0000ff;
+}
+header span{
+  color: black;
+}
+nav ul li{
+  display: inline;
+  list-style: none;
+}
+nav li a{
+  text-decoration: none;
+  font-size: 2.2rem;
+  color: #0000ff;
+  margin-left: 30px;
+  margin-right: 30px;
+}
+nav li a.active{
+  border-bottom: 3px solid #0000ff;
+}
+main{
+  padding: 10px 0px;
+  margin: 0px 250px;
+  line-height: 3.5;
+}
+main h3, h4{
+  font-size: 2.5rem;
+}
+main h3{
+  color:rgba(0, 0, 0, 0.733)
+}
+main #topic_title{
+  width: 100%;
+  padding: 16px 20px;
+  font-size: 2rem;
+  border: none;
+  background-color: rgb(237, 234, 234);
+  font-family: 'Kanit', sans-serif;
+  border-radius: 3px;
+}
+main #topic_title:focus{
+  outline: none;
+  border: 1px solid #0000ff;
+}
+main input::placeholder{
+  font-family: 'Kanit', sans-serif;
+  font-size: 2rem;
+}
+main p{
+  font-size: 2rem;
+  color: rgb(110, 110, 110);
+}
+main #topic_body{
+  width: 100%;
+  height: 200px;
+  resize: none;
+  border: none;
+  background-color: rgb(237, 234, 234);
+  border-radius: 3px;
+  font-size: 2rem;
+  font-family: 'Kanit', sans-serif;
+  padding: 16px 20px;
+}
+main #topic_body:focus{
+  outline: none;
+  border: 1px solid #0000ff;
+}
+main #topic_body::placeholder{
+  font-family: 'Kanit', sans-serif;
+  font-size: 2rem;
+}
+main #create_post{
+  float: right;
+  background-color: #0000ff;
+  color: white;
+  border: none;
+  padding: 15px 25px;
+  font-size: 2.2rem;
+  font-family: 'Kanit', sans-serif;
+  cursor: pointer;
+}
+.card #logout{
+  background-color: red;
+  border: none;
+  padding: 15px 25px;
+  font-size: 2.2rem;
+  color: white;
+  font-family: 'Kanit', sans-serif;
+  cursor: pointer;
+}

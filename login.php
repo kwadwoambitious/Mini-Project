@@ -1,11 +1,18 @@
+<?php
+  session_start();
+
+  if(isset($_SESSION['full_name'])){
+    header('Location: home.php');
+  }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login Page</title>
-  <link rel="stylesheet" href="register-and-login.css">
+  <title>Web Talk - Login</title>
+  <link rel="stylesheet" href="form.css">
 </head>
 <body>
   <h1>Login to your account.</h1>
@@ -24,36 +31,41 @@
 
   include('user_database.php');
 
-  $full_name = $_POST['full_name'];
-  $pass = $_POST['password'];
+  $_SESSION['full_name'] = $_POST['full_name'];
+  $_SESSION['pass'] = $_POST['password'];
+
+  $name = $_SESSION['full_name'];
 
   if(isset($_POST['login'])){
-    if($full_name && $pass){
-      $sql = "SELECT * FROM user_info WHERE full_name = '$full_name'";
+    if($_SESSION['full_name'] && $_SESSION['pass']){
+      $sql = "SELECT * FROM user_info WHERE full_name = '$name'";
       $check = mysqli_query($connection, $sql);
 
       if(mysqli_num_rows($check) > 0){
           while($row = mysqli_fetch_assoc($check)){
             $db_full_name = $row['full_name'];
             $db_password = $row['pass'];
+            $db_email = $row['email'];
+            $_SESSION['email'] = $db_email;
           }
 
-          if(($full_name == $db_full_name) && ($pass == $db_password)){
-            echo '<p style="color: green; font-size: 2rem;">Logged in!</p>';
-
+          if(($_SESSION['full_name'] == $db_full_name) && ($_SESSION['pass'] == $db_password)){
+            $_SESSION['email'];
             header('Location: home.php');
+            
+            // echo '<p style="color: green; font-size: 2rem;">Logged in!</p>';
 
           }
           else{
-            echo '<p style="color: red; font-size: 2rem;">Wrong password!</p>';
+            echo '<p style="color: red; font-size: 2.2rem;">Wrong password!</p>';
           }
       }
       else{
-        echo '<p style="color: red; font-size: 2rem;">User is not registered!</p>';
+        echo '<p style="color: red; font-size: 2.2rem;">User is not registered!</p>';
       }
     }
-    elseif(empty($full_name) || empty($pass)){
-      echo '<p style="color: red; font-size: 2rem;">Fill in all fields!</p>';
+    elseif(empty($_SESSION['full_name']) || empty($_SESSION['pass'])){
+      echo '<p style="color: red; font-size: 2.2rem;">Fill in all fields!</p>';
     }
   }
 
