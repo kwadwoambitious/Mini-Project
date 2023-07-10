@@ -13,8 +13,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="shortcut icon" href="favicon/favicon.ico" type="image/x-icon">
-  <title>WebForum - Index</title>
-  <link rel="stylesheet" href="style.css">
+  <title>WebForum - About</title>
+  <link rel="stylesheet" href="home_pages.css">
 </head>
 <body>
    <header>
@@ -33,23 +33,13 @@
                 </div>
           </nav>
       </header>
-  
-  <section class="main">
-   <div>
-     <h1>Improve on your development skills today!</h1>
-   </div>
-    <div>
-       <p>Join our thriving community of web developers today and unlock a world of collaboration, learning, and growth. Embrace the power of knowledge-sharing and let your skills soar to new heights.</p>
-    </div>
-    <div>
-      <a href="register.php">Get started</a>
-    </div>
-  </section>
-  <footer>
-      <p>This platform was built by Antwi Ebenezer.</p>
-      <p>Copyright &copy; 2023. All rights reserved.</p>
-  </footer>
-  
+          <div class="about">
+              <h1>About this platform</h1>
+              <hr>
+              <p>
+                  Welcome to our Web Developers Community Forum, a thriving online space for developers to connect, collaborate, and learn. Join our inclusive community to discuss coding challenges, share insights, and seek assistance from fellow web developers. Explore diverse topics such as HTML, CSS, JavaScript, frameworks, and more. Receive valuable feedback on your projects, stay up-to-date with the latest industry trends, and engage in coding challenges and events. Expand your professional network, enhance your skills, and unlock your true potential as a web developer. Join us now and be part of this supportive community dedicated to empowering web developers like you!
+              </p>
+          </div>
   <script>
       const mainMenu = document.querySelector(".main-menu");
       const menuBar = document.querySelector(".menu-bar");

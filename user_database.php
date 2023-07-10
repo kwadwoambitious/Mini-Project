@@ -1,14 +1,9 @@
 <?php
   $db_server = 'localhost';
-  $db_user = 'root';
-  $db_password = '';
-  $db_name = 'user_db';
+  $db_user = 'id20942231_root';
+  $db_password = 'FORUMDBroot123-';
+  $db_name = 'id20942231_forumdb';
   $connection = '';
 
-  try{
     $connection = mysqli_connect($db_server, $db_user, $db_password, $db_name);
-  }
-  catch(mysqli_sql_exception){
-    echo'Could not connect! <br>';
-  }
 ?>
