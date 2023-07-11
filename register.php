@@ -47,19 +47,11 @@
       const mainMenu = document.querySelector(".main-menu");
       const menuBar = document.querySelector(".menu-bar");
       
-      /*
-        toggle both menu-bar and main-menu elements with a class name of active
-        when the hambuger is clicked(for smaller screens).
-        */
         menuBar.addEventListener("click", () => {
             menuBar.classList.toggle("active");
             mainMenu.classList.toggle("active");
         });
         
-        /*
-        remove active class from both menu-bar and main-menu elements 
-        when a nav-link is clicked(for smaller screens).
-        */
         document.querySelectorAll(".menu-item").forEach(n => n.addEventListener("click", () => {
             menuBar.classList.remove("active");
             mainMenu.classList.remove("active");
@@ -87,7 +79,7 @@
     if($full_name && $email && $pass && $confirm_pass){
         if(strlen($full_name) >= 10 && strlen($full_name) < 25 && strlen($pass) >= 8 && ($pass == $confirm_pass)){
             if (preg_match("/^[a-zA-Z-' ]*$/",$full_name)) {
-                $sql = "INSERT INTO register (full_name, email, pass, c_pass) VALUES ('$full_name', '$email', '$pass',  '$confirm_pass')";
+                $sql = "INSERT INTO register_info (full_name, email, pass, c_pass) VALUES ('$full_name', '$email', '$pass',  '$confirm_pass')";
 
                 mysqli_query($connection, $sql);
                 

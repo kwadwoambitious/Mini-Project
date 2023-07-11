@@ -35,28 +35,26 @@
                 </div>
           </nav>
       </header>
-
-      <main class= "post">
+      <!-- Hello, I am in the person of Antwi Ebenezer, a third year Computer Science Student at the best university in Africa and the 12th best university in the World. I am a front-end developer and an aspiring Software Developer. I am versed in HTML, CSS JavaScript and PHP. I have taken a lot of online courses which I thought they would advance my knowledge in my web development journey. I actually obtained certificates for all the courses I took. I am presently building my third year mini-project, which is a WEB DEVELOPERS COMMUNITY FORUM. -->
+      <!-- <main class= "post">
           <p>No posts available to be displayed.</p>
           <a href="new-post.php" id="button">Create Post</a>
+      </main> -->
+  
+      <main class="home">
+        <h1>Recent Posts</h1>
+        <hr>
+        
       </main>
       <script>
           const mainMenu = document.querySelector(".main-menu");
           const menuBar = document.querySelector(".menu-bar");
-          
-          /*
-            toggle both menu-bar and main-menu elements with a class name of active
-            when the hambuger is clicked(for smaller screens).
-            */
+    
             menuBar.addEventListener("click", () => {
                 menuBar.classList.toggle("active");
                 mainMenu.classList.toggle("active");
             });
             
-            /*
-            remove active class from both menu-bar and main-menu elements 
-            when a nav-link is clicked(for smaller screens).
-            */
             document.querySelectorAll(".menu-item").forEach(n => n.addEventListener("click", () => {
                 menuBar.classList.remove("active");
                 mainMenu.classList.remove("active");
@@ -66,4 +64,47 @@
 </body>
 </html>
 
+<?php
+  include('user_database.php');
 
+  // Retrieve posts from the database
+  $sql = "SELECT * FROM posts ORDER BY id DESC";
+  $result = mysqli_query($connection, $sql);
+
+  while ($row = mysqli_fetch_assoc($result)) {
+    $post_id = $row["id"];
+    $post_title = $row["post_title"];
+    $post_message = $row["post_message"];
+    $post_date = $row["post_date"];
+
+    echo '<div class="posts" style="margin: 0 auto; max-width: 700px; width: 85%;">
+            <div style="background-color: rgb(237, 234, 234); border-radius: 10px; padding: 20px; margin-bottom: 50px;">
+                <div class="user">
+                <div class="user-img">
+                  <i class="fa-solid fa-user"></i>
+                </div>
+                <div class="name-and-date">
+                  <p style="font-size: 2rem;">'.$_SESSION["full_name"].'</p>
+                  <span style="font-size: 1.4rem; color: rgb(110, 110, 110); font-style: italic;">posted on '
+                    .$post_date.
+                '</span> 
+                </div>  
+              </div> 
+                
+              <div class="post_content">
+                  <h3 class="title" style=" margin: 20px 0 10px 0; font-size: 1.7rem; color: rgb(110, 110, 110);"> ' 
+                    .$post_title.
+                  ' </h3>
+                  <p class="message" style="margin-bottom: 20px; font-size: 2.2rem; line-height: 1.4;">'
+                  .$post_message.
+                '</p>
+              </div>
+            </div>
+          </div>';
+    
+  }
+
+    
+
+  mysqli_close($connection);
+?>

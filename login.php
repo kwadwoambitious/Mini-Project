@@ -85,7 +85,7 @@
         
         
     if($_SESSION['full_name'] && $_SESSION['pass']){
-      $sql = "SELECT * FROM register WHERE full_name = '$name'";
+      $sql = "SELECT * FROM register_info WHERE full_name = '$name'";
       $check = mysqli_query($connection, $sql);
 
       if(mysqli_num_rows($check) > 0){
