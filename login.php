@@ -14,7 +14,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="shortcut icon" href="favicon/favicon.ico" type="image/x-icon">
   <title>Web Forum - Login</title>
-  <link rel="stylesheet" href="forms.css">
+  <link rel="stylesheet" href="form.css">
 </head>
 <body>
     <header>
@@ -48,19 +48,11 @@
       const mainMenu = document.querySelector(".main-menu");
       const menuBar = document.querySelector(".menu-bar");
       
-      /*
-        toggle both menu-bar and main-menu elements with a class name of active
-        when the hambuger is clicked(for smaller screens).
-        */
         menuBar.addEventListener("click", () => {
             menuBar.classList.toggle("active");
             mainMenu.classList.toggle("active");
         });
-        
-        /*
-        remove active class from both menu-bar and main-menu elements 
-        when a nav-link is clicked(for smaller screens).
-        */
+
         document.querySelectorAll(".menu-item").forEach(n => n.addEventListener("click", () => {
             menuBar.classList.remove("active");
             mainMenu.classList.remove("active");
@@ -104,31 +96,75 @@
           
           else{
            echo '
-             <script>
-                alert("Wrong password!");
-                window.location.href = "login.php";
-             </script>
+           <!DOCTYPE html>
+           <html lang="en">
+           <head>
+             <meta charset="UTF-8">
+             <meta name="viewport" content="width=device-width, initial-scale=1.0">
+             <title>Document</title>
+             <link rel="stylesheet" href="modal-pop-up.css">
+           </head>
+           <body>
+             <div class="modal-container">
+                   <div class="modal">
+                       <h1>❌</h1>
+                       <p>Wrong password</p>
+                       <p class="last-p">Provide the correct password!</p>
+                       <a href="login.php">Go back</a>
+                   </div>
+             </div>
+           </body>
+           </html>
           
             ';
           }
       }
       else{
         echo '
-         <script>
-            alert("User is not registered!");
-            window.location.href = "login.php";
-         </script>
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+          <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Document</title>
+          <link rel="stylesheet" href="modal-pop-up.css">
+        </head>
+        <body>
+          <div class="modal-container">
+                <div class="modal">
+                    <h1>❌</h1>
+                    <p>User cannot be found.</p>
+                    <p class="last-p">Register first before login!</p>
+                    <a href="register.php">Register me</a>
+                </div>
+          </div>
+        </body>
+        </html>
       
-      ';
-        
+      ';  
       }
     }
     elseif(empty($_SESSION['full_name']) || empty($_SESSION['pass'])){
       echo '
-         <script>
-            alert("Fill in all fields!");
-            window.location.href = "login.php";
-         </script>
+         <!DOCTYPE html>
+          <html lang="en">
+          <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Document</title>
+            <link rel="stylesheet" href="modal-pop-up.css">
+          </head>
+          <body>
+            <div class="modal-container">
+                  <div class="modal">
+                      <h1>❌</h1>
+                      <p>The fields are empty.</p>
+                      <p class="last-p">Kindly fill in all fields!</p>
+                      <a href="login.php">Go back</a>
+                  </div>
+            </div>
+          </body>
+          </html>
       
       ';
      

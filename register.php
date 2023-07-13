@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="shortcut icon" href="favicon/favicon.ico" type="image/x-icon">
   <title>Web Forum - Register</title>
-  <link rel="stylesheet" href="forms.css">
+  <link rel="stylesheet" href="form.css">
 </head>
 <body>
   <header>
@@ -84,62 +84,167 @@
                 mysqli_query($connection, $sql);
                 
                 echo '
-                  <script>
-                        alert("Registered successfully!");
-                        header("Location: login.php");
-                  </script>
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                  <meta charset="UTF-8">
+                  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                  <title>Document</title>
+                  <link rel="stylesheet" href="modal-pop-up.css">
+                </head>
+                <body>
+                  <div class="modal-container">
+                        <div class="modal">
+                            <h1>✅</h1>
+                            <p>Registered successfully.</p>
+                            <p class="last-p">You can login now!</p>
+                            <a href="login.php" style="background-color: #0000ff;">Login</a>
+                        </div>
+                  </div>
+                </body>
+                </html>
                 ';
               }
         }
         else{
           if(strlen($full_name) < 10 || strlen($full_name) > 25){
             echo '
-              <script>
-                    alert("Full name must be between 10 and 25 characters!");
-                    window.location.href = "register.php";
-              </script>
+            <!DOCTYPE html>
+            <html lang="en">
+            <head>
+              <meta charset="UTF-8">
+              <meta name="viewport" content="width=device-width, initial-scale=1.0">
+              <title>Document</title>
+              <link rel="stylesheet" href="modal-pop-up.css">
+            </head>
+            <body>
+              <div class="modal-container">
+                    <div class="modal">
+                        <h1>❌</h1>
+                        <p>Incorrect name length.</p>
+                        <p class="last-p">Must be between 10 and 25 characters!</p>
+                        <a href="register.php">Go back</a>
+                    </div>
+              </div>
+            </body>
+            </html>
             ';
           }
           else if(!preg_match("/^[a-zA-Z-' ]*$/",$full_name)){
               echo '
-              <script>
-                    alert("Full name must only be letters and white space");
-                    window.location.href = "register.php";
-              </script>
+              <!DOCTYPE html>
+              <html lang="en">
+              <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>Document</title>
+                <link rel="stylesheet" href="modal-pop-up.css">
+              </head>
+              <body>
+                <div class="modal-container">
+                      <div class="modal">
+                          <h1>❌</h1>
+                          <p>Wrong name characters.</p>
+                          <p class="last-p">Only letters and white space!</p>
+                          <a href="register.php">Go back</a>
+                      </div>
+                </div>
+              </body>
+              </html>
             ';
           }
           else if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
               echo '
-              <script>
-                    alert("Email is invalid!");
-                    window.location.href = "register.php";
-              </script>
+              <!DOCTYPE html>
+              <html lang="en">
+              <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>Document</title>
+                <link rel="stylesheet" href="modal-pop-up.css">
+              </head>
+              <body>
+                <div class="modal-container">
+                      <div class="modal">
+                          <h1>❌</h1>
+                          <p>The email is incorrect.</p>
+                          <p class="last-p">Enter valid email!</p>
+                          <a href="register.php">Go back</a>
+                      </div>
+                </div>
+              </body>
+              </html>
             ';
           }
           else if(strlen($pass) < 8){
             echo '
-              <script>
-                    alert("Password must not be less than 8 characters");
-                    window.location.href = "register.php";
-              </script>
+            <!DOCTYPE html>
+            <html lang="en">
+            <head>
+              <meta charset="UTF-8">
+              <meta name="viewport" content="width=device-width, initial-scale=1.0">
+              <title>Document</title>
+              <link rel="stylesheet" href="modal-pop-up.css">
+            </head>
+            <body>
+              <div class="modal-container">
+                    <div class="modal">
+                        <h1>❌</h1>
+                        <p>Password\'s length is short.</p>
+                        <p class="last-p">Length must not be less than 8 characters!</p>
+                        <a href="register.php">Go back</a>
+                    </div>
+              </div>
+            </body>
+            </html>
             ';
           }
           else if($pass != $confirm_pass){
             echo '
-              <script>
-                    alert("Passwords do not match");
-                    window.location.href = "register.php";
-              </script>
+            <!DOCTYPE html>
+            <html lang="en">
+            <head>
+              <meta charset="UTF-8">
+              <meta name="viewport" content="width=device-width, initial-scale=1.0">
+              <title>Document</title>
+              <link rel="stylesheet" href="modal-pop-up.css">
+            </head>
+            <body>
+              <div class="modal-container">
+                    <div class="modal">
+                        <h1>❌</h1>
+                        <p>Passwords do not match.</p>
+                        <p class="last-p">Passwords must match!</p>
+                        <a href="register.php">Re-enter</a>
+                    </div>
+              </div>
+            </body>
+            </html>
               ';
           }
       }
     }
     else{
       echo '
-          <script>
-                alert("Fill in all fields");
-                window.location.href = "register.php";
-          </script>
+      <!DOCTYPE html>
+      <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="modal-pop-up.css">
+      </head>
+      <body>
+        <div class="modal-container">
+              <div class="modal">
+                  <h1>❌</h1>
+                  <p>The fields are empty.</p>
+                  <p class="last-p">Kindly fill in all fields!</p>
+                  <a href="register.php">Go back</a>
+              </div>
+        </div>
+      </body>
+      </html>
         ';
       
     }

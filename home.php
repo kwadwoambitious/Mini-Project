@@ -13,7 +13,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="home_pages.css">
+  <link rel="stylesheet" href="home_page.css">
   <link rel="shortcut icon" href="favicon/favicon.ico" type="image/x-icon">
   
   <title>Web Forum - Home</title>
@@ -35,7 +35,6 @@
                 </div>
           </nav>
       </header>
-      <!-- Hello, I am in the person of Antwi Ebenezer, a third year Computer Science Student at the best university in Africa and the 12th best university in the World. I am a front-end developer and an aspiring Software Developer. I am versed in HTML, CSS JavaScript and PHP. I have taken a lot of online courses which I thought they would advance my knowledge in my web development journey. I actually obtained certificates for all the courses I took. I am presently building my third year mini-project, which is a WEB DEVELOPERS COMMUNITY FORUM. -->
       <!-- <main class= "post">
           <p>No posts available to be displayed.</p>
           <a href="new-post.php" id="button">Create Post</a>
@@ -76,6 +75,7 @@
     $post_title = $row["post_title"];
     $post_message = $row["post_message"];
     $post_date = $row["post_date"];
+    $post_creator = $row["post_creator"];
 
     echo '<div class="posts" style="margin: 0 auto; max-width: 700px; width: 85%;">
             <div style="background-color: rgb(237, 234, 234); border-radius: 10px; padding: 20px; margin-bottom: 50px;">
@@ -84,7 +84,7 @@
                   <i class="fa-solid fa-user"></i>
                 </div>
                 <div class="name-and-date">
-                  <p style="font-size: 2rem;">'.$_SESSION["full_name"].'</p>
+                  <p style="font-size: 2rem;">'.$post_creator.'</p>
                   <span style="font-size: 1.4rem; color: rgb(110, 110, 110); font-style: italic;">posted on '
                     .$post_date.
                 '</span> 

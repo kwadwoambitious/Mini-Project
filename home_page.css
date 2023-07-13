@@ -25,7 +25,7 @@ header{
   box-shadow: 2px 0px 5px #0000ff;
 }
 header h1{
-  font-size: 3.5rem;
+  font-size: 3.7rem;
   color: #0000ff;
 }
 nav ul li{
@@ -34,7 +34,7 @@ nav ul li{
 }
 nav li a{
   text-decoration: none;
-  font-size: 1.8rem;
+  font-size: 2rem;
   color: #0000ff;
   margin-left: 30px;
   margin-right: 30px;
@@ -46,7 +46,7 @@ nav li .login{
   background-color: #0000ff;
   color: white;
   padding: 8px 30px 12px 30px;
-  font-size: 1.8rem;
+  font-size: 2rem;
   border-radius: 3px;
   box-shadow: 3px 4px 5px black;
   transition: all 0.5s ease-in-out;
@@ -71,7 +71,7 @@ nav li .login:hover{
 }
 h1{
     text-align: center;
-    font-size: 3rem;
+    font-size: 3.2rem;
 }
 .about{
     display: flex;
@@ -81,7 +81,7 @@ h1{
     flex-direction: column;
 }
 .about h1{
-    font-size: 4rem;
+    font-size: 4.2rem;
     color: #0000ff;
 }
 .about hr{
@@ -92,10 +92,11 @@ h1{
     margin-bottom: 20px;
 }
 .about p{
-  font-size: 1.7rem;
+  font-size: 2rem;
   text-align: center;
   max-width: 950px;
   margin: 0px 20px;
+  line-height: 1.5;
 }
 main h1{
   color: #0000ff;
@@ -137,7 +138,7 @@ main h1{
   width: 100%;
 }
 .post p{
-  font-size: 3.7rem;
+  font-size: 3.9rem;
   text-align: center;
 }
 .post #button{
@@ -145,7 +146,7 @@ main h1{
   color: white;
   border: none;
   padding: 0 20px;
-  font-size: 2.2rem;
+  font-size: 2.4rem;
   font-family: 'Poppins', sans-serif;
   cursor: pointer;
   text-decoration: none;
@@ -168,7 +169,7 @@ main{
   line-height: 2.75;
 }
 main h3, h4{
-  font-size: 2.2rem;
+  font-size: 2.4rem;
 }
 main h3{
   color: #0000ff;
@@ -176,7 +177,7 @@ main h3{
 main #topic_title{
   width: 100%;
   padding: 14px 20px;
-  font-size: 1.7rem;
+  font-size: 1.9rem;
   border: none;
   background-color: rgb(237, 234, 234);
   font-family: 'Poppins', sans-serif;
@@ -188,10 +189,10 @@ main #topic_title:focus{
 }
 main input::placeholder{
   font-family: 'Poppins', sans-serif;
-  font-size: 1.7rem;
+  font-size: 1.9rem;
 }
 main p{
-  font-size: 1.5rem;
+  font-size: 1.7rem;
   color: rgb(110, 110, 110);
 }
 main #topic_body{
@@ -201,7 +202,7 @@ main #topic_body{
   border: none;
   background-color: rgb(237, 234, 234);
   border-radius: 3px;
-  font-size: 1.7rem;
+  font-size: 1.9rem;
   font-family: 'Poppins', sans-serif;
   padding: 14px 20px;
 }
@@ -211,7 +212,7 @@ main #topic_body:focus{
 }
 main #topic_body::placeholder{
   font-family: 'Poppins', sans-serif;
-  font-size: 1.7rem;
+  font-size: 1.9rem;
 }
 main #create_post{
   float: right;
@@ -219,13 +220,13 @@ main #create_post{
   color: white;
   border: none;
   padding: 13px 25px;
-  font-size: 1.7rem;
+  font-size: 1.9rem;
   font-family: 'Poppins', sans-serif;
   cursor: pointer;
   margin-bottom: 3px;
 }
 .profile-h1{
-  font-size: 4.7rem;
+  font-size: 4.9rem;
   text-align: center
 }
 .card{

@@ -1,0 +1,41 @@
+.modal-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.7);
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top:0;
+  left: 0;
+}
+.modal{
+  background-color: #fff;
+  width: 600px;
+  max-width: 100%;
+  text-align: center;
+  padding: 30px 30px 50px 30px;
+  border-radius: 3px;
+}
+.modal h1{
+  color: red;
+  font-size: 6rem;
+}
+.modal p{
+  font-size: 3.5rem;
+  margin-top: 12px;
+  opacity: 0.6;
+}
+.modal .last-p{
+  font-size: 2.2rem;
+  margin-bottom: 40px;
+}
+.modal a{
+  padding: 10px 14px;
+  border-radius: 3px;
+  text-decoration: none;
+  background-color: red;
+  color: white;
+  font-size: 2.5rem;
+  font-family: "Poppins", sans-serif;
+}

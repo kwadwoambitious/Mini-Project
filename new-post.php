@@ -11,7 +11,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="home_pages.css">
+  <link rel="stylesheet" href="home_page.css">
   <link rel="shortcut icon" href="favicon/favicon.ico" type="image/x-icon">
   <title>Web Forum - New Post</title>
 </head>
@@ -39,7 +39,6 @@
        <form action="<?php $_SERVER["PHP_SELF"]?>" method="post">
             <h4>Topic Title</h4>
             <input type="text" name="topic_title" placeholder="Subject of your topic" id="topic_title" autocomplete="off"/>
-            <p>Keep your subject as short as possible.</p>
 
             <h4>Topic Body</h4>
             <textarea name="topic_body" placeholder="Type message..." id="topic_body"></textarea>
@@ -73,24 +72,55 @@
           $topic_title = $_POST['topic_title'];
           $topic_body = $_POST['topic_body'];
           $p_date = date('Y.m.d');
+          $p_creator = $_SESSION['full_name'];
 
           if($topic_title && $topic_body){
-            $sql = "INSERT INTO posts (post_title, post_message, post_date) VALUES ('$topic_title', '$topic_body', '$p_date')";
+            $sql = "INSERT INTO posts (post_title, post_message, post_date, post_creator) VALUES ('$topic_title', '$topic_body', '$p_date', '$p_creator')";
             mysqli_query($connection, $sql);
 
             echo '
-                <script>
-                        alert("Post made successfully!");
-                        header("Location: home.php");
-                  </script>
+            <!DOCTYPE html>
+            <html lang="en">
+            <head>
+              <meta charset="UTF-8">
+              <meta name="viewport" content="width=device-width, initial-scale=1.0">
+              <title>Document</title>
+              <link rel="stylesheet" href="modal-pop-up.css">
+            </head>
+            <body>
+              <div class="modal-container">
+                    <div class="modal">
+                        <h1>✅</h1>
+                        <p>Post made succesfully!</p>
+                        <p class="last-p">View your post on the forum\'s page.</p>
+                        <a href="home.php" style="background-color: #0000ff;">See post</a>
+                    </div>
+              </div>
+            </body>
+            </html>
                 ';
           }
           else if(empty($topic_title) || empty($topic_body)){
             echo '
-                  <script>
-                        alert("Fill in all fields!");
-                        window.locaton.href = "new-post.php";
-                  </script>
+            <!DOCTYPE html>
+            <html lang="en">
+            <head>
+              <meta charset="UTF-8">
+              <meta name="viewport" content="width=device-width, initial-scale=1.0">
+              <title>Document</title>
+              <link rel="stylesheet" href="modal-pop-up.css">
+            </head>
+            <body>
+              <div class="modal-container">
+                    <div class="modal">
+                        <h1>❌</h1>
+                        <p>The fields are empty.</p>
+                        <p class="last-p">Kindly fill in all fields!</p>
+                        <a href="new-post.php">Go back</a>
+                    </div>
+              </div>
+            </body>
+            </html>
                 ';   
           }
     }
