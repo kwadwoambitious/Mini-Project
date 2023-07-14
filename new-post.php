@@ -85,15 +85,15 @@
               <meta charset="UTF-8">
               <meta name="viewport" content="width=device-width, initial-scale=1.0">
               <title>Document</title>
-              <link rel="stylesheet" href="modal-pop-up.css">
+              <link rel="stylesheet" href="modals.css">
             </head>
             <body>
               <div class="modal-container">
                     <div class="modal">
-                        <h1>✅</h1>
-                        <p>Post made succesfully!</p>
+                        <img src="images/404-tick.png">
+                        <p>Post made successfully!</p>
                         <p class="last-p">View your post on the forum\'s page.</p>
-                        <a href="home.php" style="background-color: #0000ff;">See post</a>
+                        <a href="home.php" style="background-color: rgba(51, 173, 51, 0.938);">See post</a>
                     </div>
               </div>
             </body>
@@ -108,12 +108,12 @@
               <meta charset="UTF-8">
               <meta name="viewport" content="width=device-width, initial-scale=1.0">
               <title>Document</title>
-              <link rel="stylesheet" href="modal-pop-up.css">
+              <link rel="stylesheet" href="modals.css">
             </head>
             <body>
               <div class="modal-container">
                     <div class="modal">
-                        <h1>❌</h1>
+                        <img src="images/error-1.png">
                         <p>The fields are empty.</p>
                         <p class="last-p">Kindly fill in all fields!</p>
                         <a href="new-post.php">Go back</a>

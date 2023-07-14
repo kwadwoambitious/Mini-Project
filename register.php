@@ -90,15 +90,15 @@
                   <meta charset="UTF-8">
                   <meta name="viewport" content="width=device-width, initial-scale=1.0">
                   <title>Document</title>
-                  <link rel="stylesheet" href="modal-pop-up.css">
+                  <link rel="stylesheet" href="modals.css">
                 </head>
                 <body>
                   <div class="modal-container">
                         <div class="modal">
-                            <h1>✅</h1>
+                            <img src="images/404-tick.png">
                             <p>Registered successfully.</p>
                             <p class="last-p">You can login now!</p>
-                            <a href="login.php" style="background-color: #0000ff;">Login</a>
+                            <a href="login.php" style="background-color: rgba(51, 173, 51, 0.938);">Login</a>
                         </div>
                   </div>
                 </body>
@@ -115,12 +115,12 @@
               <meta charset="UTF-8">
               <meta name="viewport" content="width=device-width, initial-scale=1.0">
               <title>Document</title>
-              <link rel="stylesheet" href="modal-pop-up.css">
+              <link rel="stylesheet" href="modals.css">
             </head>
             <body>
               <div class="modal-container">
                     <div class="modal">
-                        <h1>❌</h1>
+                        <img src="images/error-1.png">
                         <p>Incorrect name length.</p>
                         <p class="last-p">Must be between 10 and 25 characters!</p>
                         <a href="register.php">Go back</a>
@@ -138,12 +138,12 @@
                 <meta charset="UTF-8">
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
                 <title>Document</title>
-                <link rel="stylesheet" href="modal-pop-up.css">
+                <link rel="stylesheet" href="modals.css">
               </head>
               <body>
                 <div class="modal-container">
                       <div class="modal">
-                          <h1>❌</h1>
+                          <img src="images/error-1.png">
                           <p>Wrong name characters.</p>
                           <p class="last-p">Only letters and white space!</p>
                           <a href="register.php">Go back</a>
@@ -161,12 +161,12 @@
                 <meta charset="UTF-8">
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
                 <title>Document</title>
-                <link rel="stylesheet" href="modal-pop-up.css">
+                <link rel="stylesheet" href="modals.css">
               </head>
               <body>
                 <div class="modal-container">
                       <div class="modal">
-                          <h1>❌</h1>
+                          <img src="images/error-1.png">
                           <p>The email is incorrect.</p>
                           <p class="last-p">Enter valid email!</p>
                           <a href="register.php">Go back</a>
@@ -184,12 +184,12 @@
               <meta charset="UTF-8">
               <meta name="viewport" content="width=device-width, initial-scale=1.0">
               <title>Document</title>
-              <link rel="stylesheet" href="modal-pop-up.css">
+              <link rel="stylesheet" href="modals.css">
             </head>
             <body>
               <div class="modal-container">
                     <div class="modal">
-                        <h1>❌</h1>
+                        <img src="images/error-1.png">
                         <p>Password\'s length is short.</p>
                         <p class="last-p">Length must not be less than 8 characters!</p>
                         <a href="register.php">Go back</a>
@@ -207,12 +207,12 @@
               <meta charset="UTF-8">
               <meta name="viewport" content="width=device-width, initial-scale=1.0">
               <title>Document</title>
-              <link rel="stylesheet" href="modal-pop-up.css">
+              <link rel="stylesheet" href="modals.css">
             </head>
             <body>
               <div class="modal-container">
                     <div class="modal">
-                        <h1>❌</h1>
+                        <img src="images/error-1.png">
                         <p>Passwords do not match.</p>
                         <p class="last-p">Passwords must match!</p>
                         <a href="register.php">Re-enter</a>
@@ -232,12 +232,12 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title>
-        <link rel="stylesheet" href="modal-pop-up.css">
+        <link rel="stylesheet" href="modals.css">
       </head>
       <body>
         <div class="modal-container">
               <div class="modal">
-                  <h1>❌</h1>
+                  <img src="images/error-1.png">
                   <p>The fields are empty.</p>
                   <p class="last-p">Kindly fill in all fields!</p>
                   <a href="register.php">Go back</a>

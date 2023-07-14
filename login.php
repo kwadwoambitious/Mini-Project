@@ -102,12 +102,12 @@
              <meta charset="UTF-8">
              <meta name="viewport" content="width=device-width, initial-scale=1.0">
              <title>Document</title>
-             <link rel="stylesheet" href="modal-pop-up.css">
+             <link rel="stylesheet" href="modals.css">
            </head>
            <body>
              <div class="modal-container">
                    <div class="modal">
-                       <h1>❌</h1>
+                       <img src="images/error-1.png">
                        <p>Wrong password</p>
                        <p class="last-p">Provide the correct password!</p>
                        <a href="login.php">Go back</a>
@@ -127,12 +127,12 @@
           <meta charset="UTF-8">
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
           <title>Document</title>
-          <link rel="stylesheet" href="modal-pop-up.css">
+          <link rel="stylesheet" href="modals.css">
         </head>
         <body>
           <div class="modal-container">
                 <div class="modal">
-                    <h1>❌</h1>
+                    <img src="images/error-1.png">
                     <p>User cannot be found.</p>
                     <p class="last-p">Register first before login!</p>
                     <a href="register.php">Register me</a>
@@ -152,12 +152,12 @@
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <title>Document</title>
-            <link rel="stylesheet" href="modal-pop-up.css">
+            <link rel="stylesheet" href="modals.css">
           </head>
           <body>
             <div class="modal-container">
                   <div class="modal">
-                      <h1>❌</h1>
+                      <img src="images/error-1.png">
                       <p>The fields are empty.</p>
                       <p class="last-p">Kindly fill in all fields!</p>
                       <a href="login.php">Go back</a>

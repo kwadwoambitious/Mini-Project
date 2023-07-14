@@ -17,9 +17,8 @@
   padding: 30px 30px 50px 30px;
   border-radius: 3px;
 }
-.modal h1{
-  color: red;
-  font-size: 6rem;
+.modal img{
+  width: 150px;
 }
 .modal p{
   font-size: 3.5rem;
@@ -34,7 +33,7 @@
   padding: 10px 14px;
   border-radius: 3px;
   text-decoration: none;
-  background-color: red;
+  background-color: rgb(218, 21, 21);
   color: white;
   font-size: 2.5rem;
   font-family: "Poppins", sans-serif;
