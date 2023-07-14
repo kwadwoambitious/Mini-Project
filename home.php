@@ -13,7 +13,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="home_page.css">
+  <link rel="stylesheet" href="home_pages.css">
   <link rel="shortcut icon" href="favicon/favicon.ico" type="image/x-icon">
   
   <title>Web Forum - Home</title>
@@ -23,9 +23,9 @@
           <h1><span>webForum</h1>
           <nav>
             <ul class="main-menu">
-              <li><a href="#" class="menu-item">Forum</a></li>
+              <li><a href="home.php" class="menu-item">Forum</a></li>
               <li><a href="new-post.php" class="menu-item">New</a></li>
-              <li><a href="" class="menu-item">Your Posts</a></li>
+              <li><a href="my-posts.php" class="menu-item">My Posts</a></li>
               <li><a href="profile.php" class="menu-item">Profile</a></li>
             </ul>
             <div class="menu-bar">
@@ -77,8 +77,8 @@
     $post_date = $row["post_date"];
     $post_creator = $row["post_creator"];
 
-    echo '<div class="posts" style="margin: 0 auto; max-width: 700px; width: 85%;">
-            <div style="background-color: rgb(237, 234, 234); border-radius: 10px; padding: 20px; margin-bottom: 50px;">
+    echo '<div class="posts" style="margin: 0 auto; max-width: 700px; width: 95%;">
+            <div style="box-shadow: 2px 2px 6px 2px black; border-radius: 10px; padding: 20px; margin-bottom: 70px;">
                 <div class="user">
                 <div class="user-img">
                   <i class="fa-solid fa-user"></i>

@@ -104,7 +104,7 @@ main h1{
 .home hr{
   margin: 0 auto;
   margin-bottom: 20px;
-  width: 40%;
+  width: 20%;
 }
 .user{
   display: flex;
@@ -129,7 +129,7 @@ main h1{
   color: rgb(110, 110, 110);
 }
 .post{
-  height: 80vh;
+  height: 65vh;
   display: flex;
   align-items: center;
   justify-content: center;
