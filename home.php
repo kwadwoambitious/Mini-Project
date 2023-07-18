@@ -43,7 +43,6 @@
       <main class="home">
         <h1>Recent Posts</h1>
         <hr>
-        
       </main>
       <script>
           const mainMenu = document.querySelector(".main-menu");
@@ -77,30 +76,65 @@
     $post_date = $row["post_date"];
     $post_creator = $row["post_creator"];
 
-    echo '<div class="posts" style="margin: 0 auto; max-width: 700px; width: 95%;">
-            <div style="box-shadow: 2px 2px 6px 2px black; border-radius: 10px; padding: 20px; margin-bottom: 70px;">
-                <div class="user">
-                <div class="user-img">
-                  <i class="fa-solid fa-user"></i>
-                </div>
-                <div class="name-and-date">
-                  <p style="font-size: 2rem;">'.$post_creator.'</p>
-                  <span style="font-size: 1.4rem; color: rgb(110, 110, 110); font-style: italic;">posted on '
-                    .$post_date.
-                '</span> 
-                </div>  
-              </div> 
-                
-              <div class="post_content">
-                  <h3 class="title" style=" margin: 20px 0 10px 0; font-size: 1.7rem; color: rgb(110, 110, 110);"> ' 
-                    .$post_title.
-                  ' </h3>
-                  <p class="message" style="margin-bottom: 20px; font-size: 2.2rem; line-height: 1.4;">'
-                  .$post_message.
-                '</p>
+    echo '
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="posts.css" />
+    </head>
+    <body>
+          <div class="posts">
+          <div class="container">
+              <div class="user">
+              <div class="user-img">
+                <i class="fa-solid fa-user"></i>
+              </div>
+              <div class="name-and-date">
+                <p>'.$post_creator.'</p>
+                <span>posted on '
+                  .$post_date.
+              '</span> 
+              </div>  
+            </div> 
+              
+            <div class="post-content">
+                <h3 class="title"> ' 
+                  .$post_title.
+                ' </h3>
+                <p class="message">'
+                .$post_message.
+              '</p>
+            </div>
+            <div class="comment">
+              <p id ="comment-btn">Click to comment</p>
+              <div id="content">
+                  <div class="user">
+                      <div class="user-img">
+                        <i class="fa-solid fa-user"></i>
+                      </div>
+                      <div class="name-and-date">
+                        <p>'.$post_creator.'</p>
+                        <span>posted on '
+                          .$post_date.
+                        '</span> 
+                      </div>  
+                  </div> 
+                  <p>This is a comment from Kwadwo Ambitious</p>
+                  <form>
+                    <textarea name="comment-field" placeholder="Write your comment" rows="8"required></textarea>
+                    <input type="submit" name="comment-btn" value="Comment" />
+                  </form>
               </div>
             </div>
-          </div>';
+          </div>
+        </div>
+
+        <script src="display-comment.js"></script>
+    </body>
+    </html>    
+    ';
     
   }
   mysqli_close($connection);
