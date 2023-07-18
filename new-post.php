@@ -13,7 +13,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="home_pages.css">
   <link rel="shortcut icon" href="favicon/favicon.ico" type="image/x-icon">
-  <title>Web Forum - New Post</title>
+  <title>Web Forum | New Post</title>
 </head>
 <body>
       <header>
@@ -85,7 +85,7 @@
               <meta charset="UTF-8">
               <meta name="viewport" content="width=device-width, initial-scale=1.0">
               <title>Document</title>
-              <link rel="stylesheet" href="modals.css">
+              <link rel="stylesheet" href="modal.css">
             </head>
             <body>
               <div class="modal-container">
@@ -108,7 +108,7 @@
               <meta charset="UTF-8">
               <meta name="viewport" content="width=device-width, initial-scale=1.0">
               <title>Document</title>
-              <link rel="stylesheet" href="modals.css">
+              <link rel="stylesheet" href="modal.css">
             </head>
             <body>
               <div class="modal-container">

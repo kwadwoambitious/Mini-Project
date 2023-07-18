@@ -11,22 +11,22 @@
 }
 .modal{
   background-color: #fff;
-  width: 600px;
-  max-width: 100%;
+  width: 500px;
+  max-width: 90%;
   text-align: center;
-  padding: 30px 30px 50px 30px;
+  padding: 30px 10px 50px 10px;
   border-radius: 3px;
 }
 .modal img{
-  width: 150px;
+  width: 120px;
 }
 .modal p{
-  font-size: 3.5rem;
+  font-size: 3.2rem;
   margin-top: 12px;
   opacity: 0.6;
 }
 .modal .last-p{
-  font-size: 2.2rem;
+  font-size: 2rem;
   margin-bottom: 40px;
 }
 .modal a{

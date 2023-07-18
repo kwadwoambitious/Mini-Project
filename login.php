@@ -13,7 +13,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="shortcut icon" href="favicon/favicon.ico" type="image/x-icon">
-  <title>Web Forum - Login</title>
+  <title>Web Forum | Login</title>
   <link rel="stylesheet" href="form.css">
 </head>
 <body>
@@ -39,6 +39,7 @@
     <input type="text" name="full_name" placeholder="Enter full name" autocomplete="off">
     <input type="password" name="password" placeholder="Enter password" >
     <input type="submit" name="login" value="Login">
+    <p><a href="forgot-password.php">Forgot password?</a></p>
     <p>Don't have an account?
       <a href="register.php">Register here</a>
     </p>
@@ -102,7 +103,7 @@
              <meta charset="UTF-8">
              <meta name="viewport" content="width=device-width, initial-scale=1.0">
              <title>Document</title>
-             <link rel="stylesheet" href="modals.css">
+             <link rel="stylesheet" href="modal.css">
            </head>
            <body>
              <div class="modal-container">
@@ -127,7 +128,7 @@
           <meta charset="UTF-8">
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
           <title>Document</title>
-          <link rel="stylesheet" href="modals.css">
+          <link rel="stylesheet" href="modal.css">
         </head>
         <body>
           <div class="modal-container">
@@ -152,7 +153,7 @@
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <title>Document</title>
-            <link rel="stylesheet" href="modals.css">
+            <link rel="stylesheet" href="modal.css">
           </head>
           <body>
             <div class="modal-container">

@@ -16,7 +16,7 @@
   <link rel="stylesheet" href="home_pages.css">
   <link rel="shortcut icon" href="favicon/favicon.ico" type="image/x-icon">
   
-  <title>Web Forum - Home</title>
+  <title>Web Forum | Home</title>
 </head>
 <body>
       <header>
@@ -103,8 +103,5 @@
           </div>';
     
   }
-
-    
-
   mysqli_close($connection);
 ?>

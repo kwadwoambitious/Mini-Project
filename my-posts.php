@@ -16,7 +16,7 @@
   <link rel="stylesheet" href="home_pages.css">
   <link rel="shortcut icon" href="favicon/favicon.ico" type="image/x-icon">
   
-  <title>Web Forum - My Posts</title>
+  <title>Web Forum | My Posts</title>
 </head>
 <body>
       <header>
