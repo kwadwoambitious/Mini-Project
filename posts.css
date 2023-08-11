@@ -9,6 +9,7 @@ html{
 .posts{
   margin: 0 auto; 
   max-width: 700px; 
+  max-width: 1200px;
   width: 95%;
 }
 .user{
@@ -48,50 +49,4 @@ html{
   margin-bottom: 20px; 
   font-size: 2.2rem; 
   line-height: 1.4;
-}
-#comment-btn{
-  display: inline-block;
-  font-size: 2rem; 
-  line-height: 1.4; 
-  color: #0000ff; 
-  text-decoration: underline;
-  cursor: pointer;
-}
-.comment #content{
-  border:1px solid rgb(110, 110, 110);
-  font-size: 2rem;
-  margin-left: 10px;
-  margin-right: 10px;
-  margin-top: 20px;
-  padding: 20px 20px 20px 50px;
-  display: none;
-}
-#content p{
-  margin-top: 20px;
-}
-#content.show-comment{
-  display: block;
-}
-form{
-  margin-top: 100px;
-  width: 500px;
-}
-form textarea{
-  max-width: 400px;
-  width: 100%;
-  padding: 20px;
-  resize: none;
-  font-size: 1.7rem;
-
-}
-form  input{
-  display: block;
-  border: none;
-  font-size: 1.5rem;
-  color: white;
-  background-color: #0000ff;
-  padding: 10px;
-  margin-top: 10px;
-  cursor: pointer;
-  border-radius: 5px;
 }

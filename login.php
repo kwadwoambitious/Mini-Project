@@ -36,8 +36,16 @@
   <form action="<?php $_SERVER["PHP_SELF"]?>" method="post">
       <h1>SIGN IN</h1>
       <hr>
-    <input type="text" name="full_name" placeholder="Enter full name" autocomplete="off">
-    <input type="password" name="password" placeholder="Enter password" >
+    <input type="text" name="full_name" placeholder="Enter full name" autocomplete="off"
+    			<?php
+		    if(isset($_POST['full_name'])) {
+			echo "value='".$_POST['full_name']."'";
+		    } else {
+			echo "placeholder='Full Name'";
+		    }
+		    ?>
+    >
+    <input type="password" name="password" value='<?php echo isset($_POST['password']) ? $_POST['password'] : ''; ?>' placeholder="Enter password" >
     <input type="submit" name="login" value="Login">
     <p><a href="forgot-password.php">Forgot password?</a></p>
     <p>Don't have an account?
