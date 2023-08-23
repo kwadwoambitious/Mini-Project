@@ -2,60 +2,21 @@
   session_start();
 
    if(!isset($_SESSION['full_name'])){
-     header('Location: login.php');
+     header('Location: login');
    }
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="home_page.css">
-  <link rel="shortcut icon" href="favicon/favicon.ico" type="image/x-icon">
-  
-  <title>Web Forum | My Posts</title>
-</head>
-<body>
-      <header>
-          <h1><span>webForum</h1>
-          <nav>
-            <ul class="main-menu">
-              <li><a href="home.php" class="menu-item">Forum</a></li>
-              <li><a href="new-post.php" class="menu-item">New</a></li>
-              <li><a href="my-posts.php" class="menu-item">My Posts</a></li>
-              <li><a href="profile.php" class="menu-item">Profile</a></li>
-            </ul>
-            <div class="menu-bar">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                </div>
-          </nav>
-      </header>
+<?php 
+  $title = "My Posts";
+  include('home-header.php');
+?>
   
       <main class="home">
         <h1>My Posts</h1>
         <hr>
         
       </main>
-      <script>
-          const mainMenu = document.querySelector(".main-menu");
-          const menuBar = document.querySelector(".menu-bar");
-    
-            menuBar.addEventListener("click", () => {
-                menuBar.classList.toggle("active");
-                mainMenu.classList.toggle("active");
-            });
-            
-            document.querySelectorAll(".menu-item").forEach(n => n.addEventListener("click", () => {
-                menuBar.classList.remove("active");
-                mainMenu.classList.remove("active");
-                
-            }));
-      </script>
+      <script src="script.js"></script>
 </body>
 </html>
 

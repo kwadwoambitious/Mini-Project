@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow&family=Big+Shoulders+Display:wght@700&family=Inter:wght@400;700&family=Kanit:wght@300&family=Karla:wght@400;700&family=Labrada:ital,wght@1,300&family=Lexend+Deca&family=Nunito:ital,wght@1,200&family=Open+Sans&family=Playfair+Display:wght@900&family=Poppins&family=Quicksand:wght@300;500&family=Raleway:wght@400;700&family=Roboto+Mono:wght@700&family=Tilt+Neon&family=Titillium+Web:wght@700&family=Ubuntu:wght@700&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html{
+  scroll-behavior: smooth;
+  font-size: 62.5%;
+}
+body{
+  font-family: 'Poppins', sans-serif;
+}
+.modal-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(100deg, #3b3692,#ff00cc);
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top:0;
+  left: 0;
+}
+.modal{
+  position: relative;
+  background-color: #fff;
+  width: 500px;
+  max-width: 90%;
+  text-align: center;
+  padding: 80px 0 50px 0;
+  border-radius: 3px;
+}
+.modal img{
+  width: 120px;
+  top: -60px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.modal p{
+  font-size: 3.2rem;
+  opacity: 0.6;
+}
+.modal .last-p{
+  font-size: 2rem;
+  padding-top: 10px;
+  padding-bottom: 40px;
+}
+.modal a{
+  padding: 10px 17px;
+  border-radius: 30px;
+  background-color: #7e22ce;
+  text-decoration: none;
+  color: white;
+  font-size: 2rem;
+  font-family: "Poppins", sans-serif;
+}

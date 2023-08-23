@@ -2,183 +2,98 @@
   ob_start();
   session_start();
 
-  if(isset($_SESSION['full_name'])){
-    header('Location: home.php');
+  if(isset($_SESSION['username'])){
+    header('Location: home');
   }
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="shortcut icon" href="favicon/favicon.ico" type="image/x-icon">
-  <title>Web Forum | Login</title>
-  <link rel="stylesheet" href="form.css">
-</head>
-<body>
-    <header>
-          <h1>webForum</h1>
-          <nav>
-            <ul class="main-menu">
-              <li><a href="index.php" class="">Home</a></li>
-              <li><a href="about.php">About</a></li>
-              <li><a href="login.php" class="login">Login</a></li>
-      </ul>
-            </ul>
-            <div class="menu-bar">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                </div>
-          </nav>
-      </header>
-  <form action="<?php $_SERVER["PHP_SELF"]?>" method="post">
-      <h1>SIGN IN</h1>
-      <hr>
-    <input type="text" name="full_name" placeholder="Enter full name" autocomplete="off"
-    			<?php
-		    if(isset($_POST['full_name'])) {
-			echo "value='".$_POST['full_name']."'";
-		    } else {
-			echo "placeholder='Full Name'";
-		    }
-		    ?>
-    >
-    <input type="password" name="password" value='<?php echo isset($_POST['password']) ? $_POST['password'] : ''; ?>' placeholder="Enter password" >
-    <input type="submit" name="login" value="Login">
-    <p><a href="forgot-password.php">Forgot password?</a></p>
-    <p>Don't have an account?
-      <a href="register.php">Register here</a>
-    </p>
-  </form>
-  
-   <script>
-      const mainMenu = document.querySelector(".main-menu");
-      const menuBar = document.querySelector(".menu-bar");
-      
-        menuBar.addEventListener("click", () => {
-            menuBar.classList.toggle("active");
-            mainMenu.classList.toggle("active");
-        });
 
-        document.querySelectorAll(".menu-item").forEach(n => n.addEventListener("click", () => {
-            menuBar.classList.remove("active");
-            mainMenu.classList.remove("active");
-            
-        }));
-  </script>
-</body>
-</html>
+<?php 
+    $title = "Login";
+    include('header.php');     
+?>
 
 <?php
 
   include('user_database.php');
-  $_SESSION['full_name'] = null;
+  $_SESSION['username'] = null;
   $_SESSION['pass'] = null;
-  $name = null;
-
+  $username = null;
+  $name_error = "";
+  $password_error = "";
 
   if(isset($_POST['login'])){
-        $_SESSION['full_name'] = $_POST['full_name'];
+        $_SESSION['username'] = $_POST['username'];
         $_SESSION['pass'] = $_POST['password'];
-        $name = $_SESSION['full_name'];
+        $username = $_SESSION['username'];
         
         
-    if($_SESSION['full_name'] && $_SESSION['pass']){
-      $sql = "SELECT * FROM register_info WHERE full_name = '$name'";
+    if($_SESSION['username'] && $_SESSION['pass']){
+      $sql = "SELECT * FROM users WHERE username = '$username'";
       $check = mysqli_query($connection, $sql);
 
       if(mysqli_num_rows($check) > 0){
           while($row = mysqli_fetch_assoc($check)){
-            $db_full_name = $row['full_name'];
-            $db_password = $row['pass'];
+            $db_userid = $row['id'];
+            $db_first_name = $row['first_name'];
+            $db_last_name = $row['last_name'];
+            $db_username = $row['username'];
             $db_email = $row['email'];
+            $db_password = $row['pass'];
+            $verify_password = password_verify($_SESSION['pass'], $db_password);
+            $_SESSION['user_id'] = $db_userid;
+            $_SESSION['first_name'] = $db_first_name;
+            $_SESSION['last_name'] = $db_last_name;
+            $_SESSION['username'] = $db_username;
             $_SESSION['email'] = $db_email;
+            $_SESSION['db_password'] = $db_password;
           }
 
-          if(($_SESSION['full_name'] == $db_full_name) && ($_SESSION['pass'] == $db_password)){
+          if(($_SESSION['username'] == $db_username) && $verify_password){
+            $_SESSION['user_id'];
+            $_SESSION['first_name'];
+            $_SESSION['last_name'];
+            $_SESSION['username'];
             $_SESSION['email'];
-            header('Location: home.php');
+            $_SESSION['db_password'];
+            header('Location: home');
             ob_end_flush();
           }
-          
           else{
-           echo '
-           <!DOCTYPE html>
-           <html lang="en">
-           <head>
-             <meta charset="UTF-8">
-             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-             <title>Document</title>
-             <link rel="stylesheet" href="modal.css">
-           </head>
-           <body>
-             <div class="modal-container">
-                   <div class="modal">
-                       <img src="images/error-1.png">
-                       <p>Wrong password</p>
-                       <p class="last-p">Provide the correct password!</p>
-                       <a href="login.php">Go back</a>
-                   </div>
-             </div>
-           </body>
-           </html>
-          
-            ';
+           $error_message = "<span style='color: red; padding: 10px; font-family: 'Poppins', sans-serif;'>Incorrect username or password!</span>";
           }
       }
       else{
-        echo '
-        <!DOCTYPE html>
-        <html lang="en">
-        <head>
-          <meta charset="UTF-8">
-          <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <title>Document</title>
-          <link rel="stylesheet" href="modal.css">
-        </head>
-        <body>
-          <div class="modal-container">
-                <div class="modal">
-                    <img src="images/error-1.png">
-                    <p>User cannot be found.</p>
-                    <p class="last-p">Register first before login!</p>
-                    <a href="register.php">Register me</a>
-                </div>
-          </div>
-        </body>
-        </html>
-      
-      ';  
+        $error_message = "<span style='color: red; padding: 10px; font-family: 'Poppins', sans-serif;'>User is not registered!</span>";
       }
     }
-    elseif(empty($_SESSION['full_name']) || empty($_SESSION['pass'])){
-      echo '
-         <!DOCTYPE html>
-          <html lang="en">
-          <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Document</title>
-            <link rel="stylesheet" href="modal.css">
-          </head>
-          <body>
-            <div class="modal-container">
-                  <div class="modal">
-                      <img src="images/error-1.png">
-                      <p>The fields are empty.</p>
-                      <p class="last-p">Kindly fill in all fields!</p>
-                      <a href="login.php">Go back</a>
-                  </div>
-            </div>
-          </body>
-          </html>
-      
-      ';
-     
+    elseif(empty($_SESSION['username']) && empty($_SESSION['pass'])){
+      $error_message = "<span style='color: red; padding: 10px; font-family: 'Poppins', sans-serif;'>Fill in all fields!</span>";
     }
   }
 
   mysqli_close($connection);
 ?>
+
+<head>
+  <link rel="stylesheet" href="form.css">
+</head>
+        <div class="container">
+          <form action="<?php $_SERVER["PHP_SELF"]?>" method="post">
+              <h1>SIGN IN</h1>
+              <span class="error"><?php echo $error_message?></span>
+              <input type="text" name="username" placeholder="Enter username" value="<?php echo $username?>">
+              
+              <input type="password" name="password" placeholder="Enter password">
+
+              <input type="submit" name="login" value="LOGIN">
+
+              <p><a href="forgot-password">Forgot password?</a></p>
+              <p>Don't have an account?
+              <a href="register">Register here</a>
+              </p>
+          </form>
+        </div>
+  
+  <script src="script.js"></script>
+</body>
+</html>

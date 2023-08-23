@@ -9,37 +9,34 @@ html{
   font-size: 62.5%;
 }
 body{
-  /* font-family: 'Poppins', sans-serif; */
-  font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: 'Poppins', sans-serif;
+  height: 100vh;
 }
 header{
   display: flex;
   align-items: center;
   justify-content: space-around;
-  padding: 7px 0;
-  position: sticky;
+  padding: 20px 0;
   top: 0;
   width: 100%;
-  z-index: 1;
-  background-color: white;
-  box-shadow: 2px 0px 5px #0000ff;
+  box-shadow: 1px 1px 7px 1px #7e22ce ;
 }
 header h1{
   font-size: 3.7rem;
-  color: #0000ff;
+  color: #7e22ce; 
 }
 nav ul li{
   display: inline;
   list-style: none;
 }
 nav .dropdown-toggle{
-  color: #0000ff; 
+  color: black; 
   font-size: 2rem; 
   text-decoration: none; 
   cursor: pointer;
 }
 nav .dropdown-menu{
-  background-color: #0000ff;
+  background-color: #7e22ce ;
 }
 .dropdown-menu .dropdown-item{
   color: white; 
@@ -47,81 +44,45 @@ nav .dropdown-menu{
   padding: 20px 30px;
 }
 .dropdown-menu .dropdown-item:hover{
-  background-color: black;
-  color: white;
+  background-color: white;
+  color: black;
 }
 nav li .menu-item{
   text-decoration: none;
   font-size: 2rem;
-  color: #0000ff;
+  color: black;
   margin-left: 30px;
   margin-right: 30px;
 }
 nav li .menu-item:hover{
-    border-bottom: 1px solid #0000ff;
-}
-nav li .login{
-  background-color: #0000ff;
-  color: white;
-  padding: 8px 30px 12px 30px;
-  font-size: 2rem;
-  border-radius: 3px;
-  box-shadow: 3px 4px 5px black;
-  transition: all 0.5s ease-in-out;
-}
-nav li .login:hover{
-    opacity: 0.6;
-    border-bottom: none;
-}
-.welcome_msg{
-  color: white;
-  text-align: left;
-  background-color: #0000ff;
-  padding: 30px;
-  font-size: 2.5rem;
-  padding-left: 150px;
+  border-bottom: 1px solid #7e22ce ;
 }
 .menu-bar{
-    display: none;
-    cursor: pointer;
+  display: none;
+  cursor: pointer;
 }
 .bar{
-    display: block;
-    width: 25px;
-    height: 3px;
-    margin: 5px auto;
-    -webkit-transition: all 0.3s ease-in-out;
-    transition: all 0.3s ease-in-out;
-    background: #0000ff;
-    border-radius: 5px;
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px 0;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  background: #7e22ce;
+  border-radius: 5px;
 }
-.about{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 90vh;
-    flex-direction: column;
+.bar1{
+  width: 30px;
 }
-.about h1{
-    font-size: 4.2rem;
-    color: #0000ff;
+.bar2{
+  width: 25px;
 }
-.about hr{
-    width: 15%;
-    border: none;
-    border-radius: 5px;
-    border: 1px solid #0000ff;
-    margin-bottom: 20px;
-}
-.about p{
-  font-size: 2rem;
-  text-align: center;
-  max-width: 950px;
-  margin: 0px 20px;
-  line-height: 1.5;
+.bar3{
+  width: 22px;
 }
 .heading{
-  color: #0000ff;
+  color: black;
+  padding-top: 50px;
 }
 .home hr{
   margin: 0 auto;
@@ -140,7 +101,7 @@ main h3, h4 , .heading{
   margin-top: 30px;
 }
 main h3, .heading{
-  color: #0000ff;
+  color: black;
   font-size: 5rem;
 }
 main #topic_title{
@@ -155,7 +116,7 @@ main #topic_title{
 }
 main #topic_title:focus{
   outline: none;
-  border: 1px solid #0000ff;
+  border: 1px solid #0164d5;
 }
 main input::placeholder{
   font-family: 'Poppins', sans-serif;
@@ -178,15 +139,14 @@ main #topic_body{
 }
 main #topic_body:focus{
   outline: none;
-  border: 1px solid #0000ff;
+  border: 1px solid #0164d5;
 }
 main #topic_body::placeholder{
   font-family: 'Poppins', sans-serif;
   font-size: 1.9rem;
 }
 main #create_post{
-  /* float: right; */
-  background-color: #0000ff;
+  background-color: #0164d5;
   color: white;
   border: none;
   padding: 3px 20px;
@@ -195,44 +155,133 @@ main #create_post{
   cursor: pointer;
   margin-bottom: 50px;
 }
-.profile-h1{
-  font-size: 4.9rem;
-  text-align: center
-}
-.card{
-  border: 1px solid #0000ff;
-  max-width: 350px;
+.res-container{
   width: 100%;
-  margin: 0 auto;
+}
+.res-container h1{
   text-align: center;
-  padding: 20px 10px;
-  border-radius: 3px;
+  padding: 60px 40px;
+  font-size: 60px;
 }
-.card .fa-solid{
-  font-size: 5rem;
-  border: 1px solid black;
+.res-container .contents{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 50px;
+}
+.profile-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #edeeec;
+  height: 87vh;
+}
+.profile{
+  background-color: #fdfefd;
+  text-align: center;
+  max-width: 450px;
+  width: 100%;
+  padding: 30px 20px;
+}
+.profile img, .update-profile img{
+  width: 200px;
   border-radius: 50%;
-  padding: 20px 25px;
+  padding-bottom: 30px;
+  display: block;
+  margin: 0 auto;
 }
-.card .profile_info{
-    word-wrap: break-word;
+.profile h3{
+  font-size: 3rem;
 }
-.card #logout{
-  background-color: red;
-  border: none;
-  margin-top: 20px;
-  padding: 10px 25px;
-  font-size: 1.9rem;
+.profile p{
+  font-size: 2rem;
+}
+.profile a, input{
+  font-size: 2rem;
+  display: block;
+  text-decoration: none;
   color: white;
-  font-family: 'Poppins', sans-serif;
-  cursor: pointer;
-  border-radius: 3px;
-  transition: all 0.5s ease;
+  margin-top: 15px;
+  padding: 15px;
+  border-radius: 5px;
 }
-.card #logout:hover{
-    border: 1px solid red;
-    color: red;
-    background-color: transparent;
+.profile a{
+  background-color: #7e22ce;
+}
+.profile input{
+  width: 100%;
+  border: none;
+  background-color: #d54e31;
+}
+.profile-update-container{
+  background-color: #edeeec;
+  position: relative;
+  height: 100vh;
+}
+.update-profile{
+  position: absolute;
+  margin: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fdfefd;
+  max-width: 800px;
+  width: 100%;
+  padding: 30px 20px;
+}
+.update-profile img{
+  width: 150px;
+}
+.profile-flex{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 30px;
+}
+.profile-flex input{
+  margin-top: 0;
+  margin-bottom: 15px;
+  width: 100%;
+  padding: 10px;
+  font-size: 2rem;
+  font-family: 'Poppins', sans-serif;
+  border-radius: 3px;
+  background-color: #eee;
+  color: black;
+  border: none;
+  border: 1px solid #7e22ce;
+}
+form .updateBtn{
+  display: block;
+  width: 100%;
+  border: none;
+  padding: 12px;
+  background-color: #7e22ce;
+  color: white;
+}
+form .updateClose{
+  margin-top: 10px;
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 12px;
+  font-size: 2rem;
+  background-color: #d54e31;
+  color: white;
+  text-decoration: none;
+  border-radius: 3px;
+}
+form span{ 
+  font-size: 1.9rem; 
+  display: block; 
+  width: 100%; 
+}
+.profile-flex input:focus{
+  outline: none;
+}
+label{
+  font-size: 1.8rem;
 }
 @media (max-width: 900px){
     .about p{
@@ -242,7 +291,7 @@ main #create_post{
 @media (max-width: 850px){
     header{
         justify-content: space-between;
-        padding: 0 20px;
+        padding: 10px 20px;
     }
     header h1{
         font-size: 3.3rem;
@@ -251,14 +300,15 @@ main #create_post{
         display: block;
     }
     .menu-bar.active .bar:nth-child(2){
-        opacity: 0;
-        
+        opacity: 0; 
     }
     .menu-bar.active .bar:nth-child(1){
+        width: 25px;
         transform: translateY(8px) rotate(45deg);
         background: #fff;
     }
     .menu-bar.active .bar:nth-child(3){
+        width: 25px;
         transform: translateY(-8px) rotate(-45deg);
         background: #fff;
     }
@@ -272,7 +322,7 @@ main #create_post{
       background-color: white;
     }
     .dropdown-menu .dropdown-item{
-      color: #0000ff; 
+      color: #7e22ce; 
       font-size: 2rem; 
       padding: 10px 25px;
     }
@@ -281,18 +331,18 @@ main #create_post{
       color: white;
     }
     nav .main-menu{
-        background: #0000ff;
-        display: flex;
-        flex-direction: column;
-        position: fixed;
-        top: 0;
-        right: -110%;
-        width: 80vw;
-        height: 100vh;
-        justify-content: center;
-        align-items: center;
-        transition: right 0.3s ease;
-        transition: 0.5s ease-in-out;
+      background: #7e22ce;
+      display: flex;
+      flex-direction: column;
+      position: fixed;
+      top: 0;
+      right: -110%;
+      width: 80vw;
+      height: 100vh;
+      justify-content: center;
+      align-items: center;
+      transition: right 0.3s ease;
+      transition: 0.5s ease-in-out;
     }
     nav .main-menu.active{
         right: 0;
@@ -304,18 +354,6 @@ main #create_post{
     }
     nav .main-menu .menu-item:hover{
         border-bottom: 1px solid white;
-    }
-    nav li .login{
-        box-shadow: none;
-        background-color: white;
-        color: #0000ff;
-        padding: 7px 25px 11px 25px;
-        transition: all 0.5s ease-in-out;
-    }
-    nav li .login:hover{
-        background-color: transparent;
-        border: 1px solid white;
-        color: white;
     }
 }
 @media (max-width: 700px){
@@ -334,10 +372,14 @@ main #create_post{
         font-size: 1.4rem;
         text-align: justify;
     }
-}
-@media (max-width: 440px){
-    .profile-h1{
-        font-size: 3.2rem;
+    .profile-update-container{
+     height: inherit;
+    }
+    .update-profile{
+      margin: 100px auto;
+    }
+    .profile-flex{
+      flex-direction: column;
     }
 }
 @media (max-width: 430px){
@@ -345,11 +387,15 @@ main #create_post{
         font-size: 1.8rem;
     }
     header h1{
-        font-size: 2.8rem;
-        
+        font-size: 2.8rem; 
     }
     .about h1{
         font-size: 2.8rem;
+    }
+}
+@media (max-width: 375px){
+    .update-profile{
+      margin: 150px auto;
     }
 }
 @media (max-width: 350px){
@@ -361,7 +407,7 @@ main #create_post{
         font-size: 2rem;
         width: 140px;
 }
-     header h1{
+    header h1{
         font-size: 2.5rem;
     }
     main #create_post{
@@ -376,19 +422,7 @@ main #create_post{
     .about h1{
         font-size: 2.5rem;
     }
-}
-@media (max-width: 300px){
-    .profile-h1{
-        font-size: 3rem;
-    }
-}
-@media (max-width: 279px){
-    .profile-h1{
-        font-size: 2.6rem;
-    }
-}
-@media (max-width: 241px){
-    .profile-h1{
-        font-size: 2.2rem;
+    .update-profile{
+      margin: 240px auto;
     }
 }

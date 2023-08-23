@@ -1,8 +1,8 @@
 <?php
   session_start();
 
-   if(!isset($_SESSION['full_name'])){
-     header('Location: login.php');
+   if(!isset($_SESSION['username'])){
+     header('Location: login');
    }
 ?>
 
@@ -20,56 +20,11 @@
     }
 
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-  <link rel="shortcut icon" href="favicon/favicon.ico" type="image/x-icon">
-  <link rel="stylesheet" href="threadlist.css">
-  <link rel="stylesheet" href="home_page.css">
-  <title><?php echo $catname?> Forum</title>
-</head>
-<body>
-<header>
-          <h1><span>webForum</h1>
-          <nav>
-            <ul class="main-menu">
-              <li><a href="home.php" class="menu-item">Forum</a></li>
-              <div class="dropdown" style="display: inline-block;">
-                <a class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                  Categories
-                </a>
-                <ul class="dropdown-menu">
-                  <?php 
+<?php 
+  $title = $catname;
+  include('home-header.php');
+?>
 
-                      include ('user_database.php');
-                      $sql="SELECT `category_id`, `category_name` FROM `category` Limit 5";
-                      $result=mysqli_query($connection, $sql);
-                      while($row=mysqli_fetch_assoc($result)){
-                          echo '<li><a class="dropdown-item" href="threadlist.php?catid='.$row['category_id'].'">'.$row['category_name'].'</a></li>';
-                      }
-
-                  ?>
-                </ul>
-	            </div>
-              <li><a href="new-post.php" class="menu-item">New</a></li>
-              <li><a href="my-posts.php" class="menu-item">My Posts</a></li>
-              <li><a href="profile.php" class="menu-item">Profile</a></li>
-              
-            </ul>
-            <div class="menu-bar">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                </div>
-          </nav>
-      </header>
-      <!-- <main class= "post">
-          <p>No posts available to be displayed.</p>
-          <a href="new-post.php" id="button">Create Post</a>
-      </main> -->
       <h1 class="welcome_msg">Welcome back, <i> <?php 
             echo $_SESSION['full_name'];
         ?></i></h1>
@@ -92,7 +47,7 @@
        <h1 class="heading">Recent Posts</h1>
       </main>
       
-
+    <script src="script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 </body>
 </html>

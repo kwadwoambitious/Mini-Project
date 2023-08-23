@@ -1,253 +1,110 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="shortcut icon" href="favicon/favicon.ico" type="image/x-icon">
-  <title>Web Forum | Register</title>
-  <link rel="stylesheet" href="form.css">
-</head>
-<body>
-  <header>
-          <h1>webForum</h1>
-          <nav>
-            <ul class="main-menu">
-              <li><a href="index.php" class="">Home</a></li>
-              <li><a href="about.php">About</a></li>
-              <li><a href="login.php" class="login">Login</a></li>
-      </ul>
-            </ul>
-            <div class="menu-bar">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                </div>
-          </nav>
-  </header>
-  <form action="<?php $_SERVER["PHP_SELF"]?>" method="post">
-      <h1>SIGN UP</h1>
-      <hr>
-    <input type="text" name="full_name" placeholder="Enter full name" autocomplete="off" >
-    
-    <input type="email" name="email" placeholder="Enter email address" autocomplete="off">
-     
-    <input type="password" name="password" placeholder="Enter password">
-     
-    <input type="password" name="confirm_password" placeholder="Confirm password" >
-
-    <input type="submit" name="register" value="Register">
-
-    <p>Already have an account?
-      <a href="login.php">Login now</a>
-    </p>
-  </form>
-  
-  <script>
-      const mainMenu = document.querySelector(".main-menu");
-      const menuBar = document.querySelector(".menu-bar");
-      
-        menuBar.addEventListener("click", () => {
-            menuBar.classList.toggle("active");
-            mainMenu.classList.toggle("active");
-        });
-        
-        document.querySelectorAll(".menu-item").forEach(n => n.addEventListener("click", () => {
-            menuBar.classList.remove("active");
-            mainMenu.classList.remove("active");
-            
-        }));
-  </script>
-</body>
-</html>
-
+<?php 
+    $title = "Register";
+    include('header.php');   
+?>
 
 <?php
   include('user_database.php');
   
-  $full_name = null;
+  $first_name = null;
+  $last_name = null;
+  $username = null;
   $email = null;
   $pass = null;
   $confirm_pass = null;
 
   if(isset($_POST['register'])){
-      $full_name = $_POST['full_name'];
+      $first_name = $_POST['first_name'];
+      $last_name = $_POST['last_name'];
+      $username = $_POST['username'];
       $email = $_POST["email"];
       $pass = $_POST['password'];
       $confirm_pass = $_POST['confirm_password'];
       
-    if($full_name && $email && $pass && $confirm_pass){
-        if(strlen($full_name) >= 10 && strlen($full_name) < 25 && strlen($pass) >= 8 && ($pass == $confirm_pass)){
-            if (preg_match("/^[a-zA-Z-' ]*$/",$full_name)) {
-                $sql = "INSERT INTO register_info (full_name, email, pass, c_pass) VALUES ('$full_name', '$email', '$pass',  '$confirm_pass')";
+    if($first_name && $last_name && $username && $email && $pass && $confirm_pass){
+        if(strlen($first_name) >= 4 && strlen($last_name) >= 4 && strlen($username) >= 7 && strlen($pass) >= 8 && ($pass == $confirm_pass)){
+            if (preg_match("/^[a-zA-Z]*$/", $first_name) && preg_match("/^[a-zA-Z]*$/", $last_name) && preg_match("/^[a-z0-9]*$/", $username) && filter_var($email, FILTER_VALIDATE_EMAIL)) {
+              $sql = "SELECT * FROM users WHERE email = '$email' AND username = '$username'";
+              $check = mysqli_query($connection, $sql);
+        
+              if(mysqli_num_rows($check) > 0){
+                  $error_message = "<span style='color: red; padding: 10px; font-family: 'Poppins', sans-serif;'>Email is already taken!</span>";
+              }
+              else{
+                $password = password_hash($pass, PASSWORD_DEFAULT);
+                $confirm_password = password_hash($confirm_pass, PASSWORD_DEFAULT);
+
+                $sql = "INSERT INTO users (first_name, last_name, username, email, pass, c_pass) VALUES ('$first_name', '$last_name', '$username', '$email', '$password',  '$confirm_password')";
 
                 mysqli_query($connection, $sql);
-                
-                echo '
-                <!DOCTYPE html>
-                <html lang="en">
-                <head>
-                  <meta charset="UTF-8">
-                  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                  <title>Document</title>
-                  <link rel="stylesheet" href="modal.css">
-                </head>
-                <body>
-                  <div class="modal-container">
-                        <div class="modal">
-                            <img src="images/404-tick.png">
-                            <p>Registered successfully.</p>
-                            <p class="last-p">You can login now!</p>
-                            <a href="login.php" style="background-color: rgba(51, 173, 51, 0.938);">Login</a>
-                        </div>
-                  </div>
-                </body>
-                </html>
-                ';
+                header("Location: success");
+                ob_end_flush();
+              }
               }
         }
         else{
-          if(strlen($full_name) < 10 || strlen($full_name) > 25){
-            echo '
-            <!DOCTYPE html>
-            <html lang="en">
-            <head>
-              <meta charset="UTF-8">
-              <meta name="viewport" content="width=device-width, initial-scale=1.0">
-              <title>Document</title>
-              <link rel="stylesheet" href="modal.css">
-            </head>
-            <body>
-              <div class="modal-container">
-                    <div class="modal">
-                        <img src="images/error-1.png">
-                        <p>Incorrect name length.</p>
-                        <p class="last-p">Must be between 10 and 25 characters!</p>
-                        <a href="register.php">Go back</a>
-                    </div>
-              </div>
-            </body>
-            </html>
-            ';
+          if(!preg_match("/^[a-zA-Z]*$/",$first_name)){ 
+            $error_message = "<span style='color: red; padding: 10px; font-family: 'Poppins', sans-serif;'>Incorrect first name!</span>";
           }
-          else if(!preg_match("/^[a-zA-Z-' ]*$/",$full_name)){
-              echo '
-              <!DOCTYPE html>
-              <html lang="en">
-              <head>
-                <meta charset="UTF-8">
-                <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                <title>Document</title>
-                <link rel="stylesheet" href="modal.css">
-              </head>
-              <body>
-                <div class="modal-container">
-                      <div class="modal">
-                          <img src="images/error-1.png">
-                          <p>Wrong name characters.</p>
-                          <p class="last-p">Only letters and white space!</p>
-                          <a href="register.php">Go back</a>
-                      </div>
-                </div>
-              </body>
-              </html>
-            ';
+          else if (!preg_match("/^[a-zA-Z]*$/",$last_name)){
+            $error_message = "<span style='color: red; padding: 10px; font-family: 'Poppins', sans-serif;'>Incorrect last name!</span>";
+          }
+          else if(!preg_match("/^[a-z0-9]*$/", $username)){
+            $error_message = "<span style='color: red; padding: 10px; font-family: 'Poppins', sans-serif;'>Invalid username!</span>";
+          }
+          else if(strlen($first_name) < 4 || strlen($last_name) < 4 || strlen($username) < 7){            
+            $error_message = "<span style='color: red; padding: 10px; font-family: 'Poppins', sans-serif;'>Firstname, Lastname or Username is short</span>";
           }
           else if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
-              echo '
-              <!DOCTYPE html>
-              <html lang="en">
-              <head>
-                <meta charset="UTF-8">
-                <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                <title>Document</title>
-                <link rel="stylesheet" href="modal.css">
-              </head>
-              <body>
-                <div class="modal-container">
-                      <div class="modal">
-                          <img src="images/error-1.png">
-                          <p>The email is incorrect.</p>
-                          <p class="last-p">Enter valid email!</p>
-                          <a href="register.php">Go back</a>
-                      </div>
-                </div>
-              </body>
-              </html>
-            ';
+            $error_message = "<span style='color: red; padding: 10px; font-family: 'Poppins', sans-serif;'>Invalid email!</span>";
           }
           else if(strlen($pass) < 8){
-            echo '
-            <!DOCTYPE html>
-            <html lang="en">
-            <head>
-              <meta charset="UTF-8">
-              <meta name="viewport" content="width=device-width, initial-scale=1.0">
-              <title>Document</title>
-              <link rel="stylesheet" href="modal.css">
-            </head>
-            <body>
-              <div class="modal-container">
-                    <div class="modal">
-                        <img src="images/error-1.png">
-                        <p>Password\'s length is short.</p>
-                        <p class="last-p">Length must not be less than 8 characters!</p>
-                        <a href="register.php">Go back</a>
-                    </div>
-              </div>
-            </body>
-            </html>
-            ';
+            $error_message = "<span style='color: red; padding: 10px; font-family: 'Poppins', sans-serif;'>Cannot be less than 8 characters!</span>";
+            
           }
           else if($pass != $confirm_pass){
-            echo '
-            <!DOCTYPE html>
-            <html lang="en">
-            <head>
-              <meta charset="UTF-8">
-              <meta name="viewport" content="width=device-width, initial-scale=1.0">
-              <title>Document</title>
-              <link rel="stylesheet" href="modal.css">
-            </head>
-            <body>
-              <div class="modal-container">
-                    <div class="modal">
-                        <img src="images/error-1.png">
-                        <p>Passwords do not match.</p>
-                        <p class="last-p">Passwords must match!</p>
-                        <a href="register.php">Re-enter</a>
-                    </div>
-              </div>
-            </body>
-            </html>
-              ';
+            $error_message = "<span style='color: red; padding: 10px; font-family: 'Poppins', sans-serif;'>Passwords do not match!</span>";
           }
       }
     }
     else{
-      echo '
-      <!DOCTYPE html>
-      <html lang="en">
-      <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
-        <link rel="stylesheet" href="modal.css">
-      </head>
-      <body>
-        <div class="modal-container">
-              <div class="modal">
-                  <img src="images/error-1.png">
-                  <p>The fields are empty.</p>
-                  <p class="last-p">Kindly fill in all fields!</p>
-                  <a href="register.php">Go back</a>
-              </div>
-        </div>
-      </body>
-      </html>
-        ';
-      
+      $error_message = "<span style='color: red; padding: 10px; font-family: 'Poppins', sans-serif;'>Kindly fill in all fields!</span>";
     }
   }
   mysqli_close($connection);
 ?>
+
+<head>
+  <link rel="stylesheet" href="form.css">
+</head>
+  <div class="container">
+      <form action="<?php $_SERVER["PHP_SELF"]?>" method="post" class="register">
+          <h1>SIGN UP</h1>
+        <span class="error"><?php echo $error_message?></span>
+
+        <div class="form-flex">
+          <input type="text" name="first_name" placeholder="Enter first name" value="<?php echo $first_name?>">
+          <input type="text" name="last_name" placeholder="Enter last name" value="<?php echo $last_name?>">
+        </div>
+
+       <div class="form-flex">
+          <input type="text" name="username" placeholder="Enter username" value="<?php echo $username?>">
+          <input type="email" name="email" placeholder="Enter email address" value="<?php echo $email?>">
+       </div>
+       
+        <div class="form-flex">
+          <input type="password" name="password" placeholder="Enter password">
+          <input type="password" name="confirm_password" placeholder="Confirm password">
+        </div>
+
+        <input type="submit" name="register" value="REGISTER">
+
+        <p>Already have an account?
+          <a href="login">Login now</a>
+        </p>
+      </form>
+  </div>
+  
+  <script src="script.js"></script>
+</body>
+</html>
