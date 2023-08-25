@@ -8,7 +8,7 @@
 ?>
 <?php 
   $title = "Profile";
-  include('home-header.php');
+  include('includes/home-header.php');
 ?>
     <div class="profile-container">
       <div class="profile">
@@ -22,13 +22,14 @@
       </div>
     </div>
   
-     <script src="script.js"></script>
+     <script src="javascript/script.js"></script>
 
 </body>
 </html>
 
 <?php
-      
+      include('script.php');
+
       if(isset($_POST['logout'])){
         session_destroy();
         header('Location: login');

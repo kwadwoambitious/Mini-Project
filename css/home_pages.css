@@ -11,6 +11,8 @@ html{
 body{
   font-family: 'Poppins', sans-serif;
   height: 100vh;
+  position: relative;
+  overflow: auto;
 }
 header{
   display: flex;
@@ -19,7 +21,7 @@ header{
   padding: 20px 0;
   top: 0;
   width: 100%;
-  box-shadow: 1px 1px 7px 1px #7e22ce ;
+  box-shadow: 1px 1px 7px 1px #7e22ce;
 }
 header h1{
   font-size: 3.7rem;
@@ -80,14 +82,9 @@ nav li .menu-item:hover{
 .bar3{
   width: 22px;
 }
-.heading{
-  color: black;
+.heading, .home h1{
   padding-top: 50px;
-}
-.home hr{
-  margin: 0 auto;
-  margin-bottom: 20px;
-  width: 20%;
+  text-align: center;
 }
 main{
   padding: 10px 0;
@@ -100,7 +97,7 @@ main h3, h4 , .heading{
   font-size: 2.4rem;
   margin-top: 30px;
 }
-main h3, .heading{
+main h3, .heading, .home h1{
   color: black;
   font-size: 5rem;
 }
@@ -113,6 +110,7 @@ main #topic_title{
   font-family: 'Poppins', sans-serif;
   border-radius: 3px;
   margin-bottom: 30px;
+  color: black;
 }
 main #topic_title:focus{
   outline: none;
@@ -123,8 +121,10 @@ main input::placeholder{
   font-size: 1.9rem;
 }
 main p{
-  font-size: 1.7rem;
+  font-size: 4rem;
+  text-align: center;
   color: rgb(110, 110, 110);
+  padding-top: 70px;
 }
 main #topic_body{
   width: 100%;
@@ -170,6 +170,9 @@ main #create_post{
   flex-wrap: wrap;
   gap: 50px;
 }
+.contents iframe{
+  max-width: 600px;
+}
 .profile-container{
   display: flex;
   align-items: center;
@@ -183,6 +186,7 @@ main #create_post{
   max-width: 450px;
   width: 100%;
   padding: 30px 20px;
+  box-shadow: 1px 2px 5px 1px black;
 }
 .profile img, .update-profile img{
   width: 200px;
@@ -226,6 +230,7 @@ main #create_post{
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: #fdfefd;
+  box-shadow: 1px 2px 5px 1px black;
   max-width: 800px;
   width: 100%;
   padding: 30px 20px;
@@ -282,6 +287,10 @@ form span{
 }
 label{
   font-size: 1.8rem;
+}
+form{
+  position: relative;
+  width: 100%;
 }
 @media (max-width: 900px){
     .about p{
@@ -356,15 +365,16 @@ label{
         border-bottom: 1px solid white;
     }
 }
-@media (max-width: 700px){
-    .post p{
-        font-size: 2.8rem;
-    }
+@media (max-width: 630px){
+  .contents div{
+    width: 100%;
+  }
+  .contents iframe{
+    max-width: 500px;
+    width: 100%;
+  }
 }
 @media (max-width: 530px){
-    .post p{
-        font-size: 2.2rem;
-    }
     header h1{
         font-size: 3rem;
     }
@@ -383,9 +393,6 @@ label{
     }
 }
 @media (max-width: 430px){
-    .post p{
-        font-size: 1.8rem;
-    }
     header h1{
         font-size: 2.8rem; 
     }
@@ -399,9 +406,6 @@ label{
     }
 }
 @media (max-width: 350px){
-    .post p{
-        font-size: 1.5rem;
-    }
     .post #button{
         padding: 0 10px;
         font-size: 2rem;

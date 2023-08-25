@@ -1,14 +1,10 @@
 <?php
   session_start();
-
-  if(isset($_SESSION['full_name'])){
-    header('Location: home');
-  }
 ?>
 
 <?php 
     $title = "About";
-    include('header.php');     
+    include('includes/header.php');     
 ?>
           <div class="about">
               <h1>About this platform</h1>
@@ -18,8 +14,8 @@
               </p>
           </div>
           <?php 
-              include('footer.php');
+              include('includes/footer.php');
           ?>
-          <script src="script.js"></script>
+          <script src="javascript/script.js"></script>
 </body>
 </html>

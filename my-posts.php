@@ -1,29 +1,27 @@
 <?php
   session_start();
 
-   if(!isset($_SESSION['full_name'])){
+   if(!isset($_SESSION['username'])){
      header('Location: login');
    }
 ?>
 
 <?php 
   $title = "My Posts";
-  include('home-header.php');
+  include('includes/home-header.php');
 ?>
   
       <main class="home">
         <h1>My Posts</h1>
-        <hr>
-        
       </main>
-      <script src="script.js"></script>
+      <script src="javascript/script.js"></script>
 </body>
 </html>
 
 <?php
-  include('user_database.php');
+  include('database-connection/user_database.php');
 
-  $name = $_SESSION['full_name'];
+  $name = $_SESSION['username'];
   // Retrieve posts from the database
   $sql = "SELECT * FROM posts WHERE post_creator = '$name' ORDER BY id DESC";
   $result = mysqli_query($connection, $sql);
@@ -36,30 +34,43 @@
       $post_date = $row["post_date"];
       $post_creator = $row["post_creator"];
   
-      echo '<div class="posts" style="margin: 0 auto; max-width: 700px; width: 95%;">
-              <div style="box-shadow: 2px 2px 6px 2px black; border-radius: 10px; padding: 20px; margin-bottom: 70px;">
-                  <div class="user">
+
+      echo '
+      <!DOCTYPE html>
+      <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/post.css" />
+      </head>
+      <body>
+            <div class="posts my-posts">
+            <div class="container">
+                <div class="user">
                   <div class="user-img">
                     <i class="fa-solid fa-user"></i>
                   </div>
                   <div class="name-and-date">
-                    <p style="font-size: 2rem;">'.$post_creator.'</p>
-                    <span style="font-size: 1.4rem; color: rgb(110, 110, 110); font-style: italic;">posted on '
+                    <p>@'.$post_creator.'</p>
+                    <span>posted on '
                       .$post_date.
-                  '</span> 
+                     '</span> 
                   </div>  
                 </div> 
-                  
-                <div class="post_content">
-                    <h3 class="title" style=" margin: 20px 0 10px 0; font-size: 1.7rem; color: rgb(110, 110, 110);"> ' 
-                      .$post_title.
-                    ' </h3>
-                    <p class="message" style="margin-bottom: 20px; font-size: 2.2rem; line-height: 1.4;">'
-                    .$post_message.
-                  '</p>
-                </div>
+                
+              <div class="post-content">
+                  <h3 class="title"> ' 
+                    .$post_title.
+                  ' </h3>
+                  <p class="message">'
+                  .$post_message.
+                '</p>
               </div>
-            </div>';
+            </div>
+          </div>
+      </body>
+      </html>    
+      ';
     }
   }
   else{
@@ -71,7 +82,7 @@
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-      <link rel="stylesheet" href="home_pages.css">
+      <link rel="stylesheet" href="css/home_pages.css">
       <link rel="shortcut icon" href="favicon/favicon.ico" type="image/x-icon">
     </head>
     <body>
@@ -83,4 +94,6 @@
    ';
   }
   mysqli_close($connection);
+
+  include('script.php');
 ?>

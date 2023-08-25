@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="shortcut icon" href="favicon/favicon.ico" type="image/x-icon">
   <title>Web Forum | User registered</title>
-  <link rel="stylesheet" href="success.css">
+  <link rel="stylesheet" href="css/success.css">
 </head>
 <body>
   <div class="modal-container">

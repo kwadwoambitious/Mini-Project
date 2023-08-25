@@ -8,7 +8,7 @@
 ?>
 
 <?php 
-    include('user_database.php');
+    include('database-connection/user_database.php');
 
     $first_name = null;
     $last_name = null;
@@ -41,37 +41,37 @@
                     WHERE id = '$id'
                 ";
                 mysqli_query($connection, $sql);
-                $success_message = "<span style='color: green; padding: 10px; font-family: 'Poppins', sans-serif;'>Changes saved!</span>";
+                $success_message = "<span style='color: #025f02; border: 1px solid #025f02;background-color:  #025f028a; padding: 12px;'>Changes saved!<br> Re-login with the new info to see the changes!</span>";
+                
               }
               else{
-                $error_message = "<span style='color: red; padding: 10px; font-family: 'Poppins', sans-serif;'>Old password is incorrect!</span>";
+                $error_message = "<span style='color: #ab4739; border: 1px solid #ab4739;background-color:  #f8d7da; padding: 12px;'>Old password is incorrect!</span>";
               }
-        
             }
         }
         else{
           if(!preg_match("/^[a-zA-Z]*$/",$first_name)){ 
-            $error_message = "<span style='color: red; padding: 10px; font-family: 'Poppins', sans-serif;'>Incorrect first name!</span>";
+            $error_message = "<span style='color: #ab4739; border: 1px solid #ab4739;background-color:  #f8d7da; padding: 12px;'>Incorrect first name!</span>";
           }
           else if (!preg_match("/^[a-zA-Z]*$/",$last_name)){
-            $error_message = "<span style='color: red; padding: 10px; font-family: 'Poppins', sans-serif;'>Incorrect last name!</span>";
+            $error_message = "<span style='color: #ab4739; border: 1px solid #ab4739;background-color:  #f8d7da; padding: 12px;'>Incorrect last name!</span>";
           }
           else if(!preg_match("/^[a-z0-9]*$/", $username)){
-            $error_message = "<span style='color: red; padding: 10px; font-family: 'Poppins', sans-serif;'>Invalid username!</span>";
+            $error_message = "<span style='color: #ab4739; border: 1px solid #ab4739;background-color:  #f8d7da; padding: 12px;'>Invalid username!</span>";
           }
           else if(strlen($first_name) < 4 || strlen($last_name) < 4 || strlen($username) < 7){            
-            $error_message = "<span style='color: red; padding: 10px; font-family: 'Poppins', sans-serif;'>Firstname, Lastname or Username is short</span>";
+            $error_message = "<span style='color: #ab4739; border: 1px solid #ab4739;background-color:  #f8d7da; padding: 12px;'>Firstname, Lastname or Username is short</span>";
           }
           else if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
-            $error_message = "<span style='color: red; padding: 10px; font-family: 'Poppins', sans-serif;'>Invalid email!</span>";
+            $error_message = "<span style='color: #ab4739; border: 1px solid #ab4739;background-color:  #f8d7da; padding: 12px;'>Invalid email!</span>";
           }
           else if(strlen($new_pass) < 8){
-            $error_message = "<span style='color: red; padding: 10px; font-family: 'Poppins', sans-serif;'>New password must be at least 8 characters!</span>";
+            $error_message = "<span style='color: #ab4739; border: 1px solid #ab4739;background-color:  #f8d7da; padding: 12px;'>New password must be at least 8 characters!</span>";
           }
         }
       }
       else{
-        $error_message = "<span style='color: red; padding: 10px; font-family: 'Poppins', sans-serif;'>Kindly fill in all fields!</span>";
+        $error_message = "<span style='color: #ab4739; border: 1px solid #ab4739;background-color:  #f8d7da; padding: 12px;'>Kindly fill in all fields!</span>";
       }
     }
 
@@ -87,8 +87,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-  <link rel="stylesheet" href="home_page.css">
-  <link rel="stylesheet" href="threadlist.css">
+  <link rel="stylesheet" href="css/home_pages.css">
   <link rel="shortcut icon" href="favicon/favicon.ico" type="image/x-icon">
   <title>Web Forum | Profile Update</title>
 </head>
@@ -98,8 +97,8 @@
        <img src="images/noprofil.jpg">
        <div class="profile-info">
         <form action="<?php $_SERVER["PHP_SELF"]?>" method="POST">
-        <span class="error"><?php echo $error_message?></span>
-        <span class="error"><?php echo $success_message?></span>
+        <span><?php echo $error_message?></span>
+        <span><?php echo $success_message?></span>
         <div class="profile-flex">
           <label>Your first name: 
           <input type="text" name="first_name" placeholder="Enter first name" value="<?php echo $_SESSION['first_name']?>">
@@ -136,7 +135,7 @@
     </div>
    </div>
 
-   <script src="script.js"></script>
+   <script src="javascript/script.js"></script>
 
 </body>
 </html>

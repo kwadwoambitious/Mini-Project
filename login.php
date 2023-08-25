@@ -9,12 +9,12 @@
 
 <?php 
     $title = "Login";
-    include('header.php');     
+    include('includes/header.php');     
 ?>
 
 <?php
 
-  include('user_database.php');
+  include('database-connection/user_database.php');
   $_SESSION['username'] = null;
   $_SESSION['pass'] = null;
   $username = null;
@@ -59,15 +59,15 @@
             ob_end_flush();
           }
           else{
-           $error_message = "<span style='color: red; padding: 10px; font-family: 'Poppins', sans-serif;'>Incorrect username or password!</span>";
+           $error_message = "<span style='color: #ab4739; border: 1px solid #ab4739;background-color:  #f8d7da; padding: 12px;'>Incorrect username or password!</span>";
           }
       }
       else{
-        $error_message = "<span style='color: red; padding: 10px; font-family: 'Poppins', sans-serif;'>User is not registered!</span>";
+        $error_message = "<span style='color: #ab4739; border: 1px solid #ab4739;background-color:  #f8d7da; padding: 12px;'>User is not registered!</span>";
       }
     }
     elseif(empty($_SESSION['username']) && empty($_SESSION['pass'])){
-      $error_message = "<span style='color: red; padding: 10px; font-family: 'Poppins', sans-serif;'>Fill in all fields!</span>";
+      $error_message = "<span style='color: #ab4739; border: 1px solid #ab4739;background-color:  #f8d7da; padding: 12px;'>Fill in all fields!</span>";
     }
   }
 
@@ -75,7 +75,7 @@
 ?>
 
 <head>
-  <link rel="stylesheet" href="form.css">
+  <link rel="stylesheet" href="css/form.css">
 </head>
         <div class="container">
           <form action="<?php $_SERVER["PHP_SELF"]?>" method="post">
@@ -94,6 +94,6 @@
           </form>
         </div>
   
-  <script src="script.js"></script>
+  <script src="javascript/script.js"></script>
 </body>
 </html>

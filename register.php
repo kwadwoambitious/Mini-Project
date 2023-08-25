@@ -1,10 +1,10 @@
 <?php 
     $title = "Register";
-    include('header.php');   
+    include('includes/header.php');   
 ?>
 
 <?php
-  include('user_database.php');
+  include('database-connection/user_database.php');
   
   $first_name = null;
   $last_name = null;
@@ -24,11 +24,11 @@
     if($first_name && $last_name && $username && $email && $pass && $confirm_pass){
         if(strlen($first_name) >= 4 && strlen($last_name) >= 4 && strlen($username) >= 7 && strlen($pass) >= 8 && ($pass == $confirm_pass)){
             if (preg_match("/^[a-zA-Z]*$/", $first_name) && preg_match("/^[a-zA-Z]*$/", $last_name) && preg_match("/^[a-z0-9]*$/", $username) && filter_var($email, FILTER_VALIDATE_EMAIL)) {
-              $sql = "SELECT * FROM users WHERE email = '$email' AND username = '$username'";
+              $sql = "SELECT * FROM users WHERE email = '$email' OR username = '$username'";
               $check = mysqli_query($connection, $sql);
         
               if(mysqli_num_rows($check) > 0){
-                  $error_message = "<span style='color: red; padding: 10px; font-family: 'Poppins', sans-serif;'>Email is already taken!</span>";
+                  $error_message = "<span style='color: #ab4739; border: 1px solid #ab4739;background-color:  #f8d7da; padding: 12px;'>Email is already taken!</span>";
               }
               else{
                 $password = password_hash($pass, PASSWORD_DEFAULT);
@@ -44,38 +44,38 @@
         }
         else{
           if(!preg_match("/^[a-zA-Z]*$/",$first_name)){ 
-            $error_message = "<span style='color: red; padding: 10px; font-family: 'Poppins', sans-serif;'>Incorrect first name!</span>";
+            $error_message = "<span style='color: #ab4739; border: 1px solid #ab4739;background-color:  #f8d7da; padding: 12px;'>Incorrect first name!</span>";
           }
           else if (!preg_match("/^[a-zA-Z]*$/",$last_name)){
-            $error_message = "<span style='color: red; padding: 10px; font-family: 'Poppins', sans-serif;'>Incorrect last name!</span>";
+            $error_message = "<span style='color: #ab4739; border: 1px solid #ab4739;background-color:  #f8d7da; padding: 12px;'>Incorrect last name!</span>";
           }
           else if(!preg_match("/^[a-z0-9]*$/", $username)){
-            $error_message = "<span style='color: red; padding: 10px; font-family: 'Poppins', sans-serif;'>Invalid username!</span>";
+            $error_message = "<span style='color: #ab4739; border: 1px solid #ab4739;background-color:  #f8d7da; padding: 12px;'>Invalid username!</span>";
           }
           else if(strlen($first_name) < 4 || strlen($last_name) < 4 || strlen($username) < 7){            
-            $error_message = "<span style='color: red; padding: 10px; font-family: 'Poppins', sans-serif;'>Firstname, Lastname or Username is short</span>";
+            $error_message = "<span style='color: #ab4739; border: 1px solid #ab4739;background-color:  #f8d7da; padding: 12px;'>Firstname, Lastname or Username is short</span>";
           }
           else if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
-            $error_message = "<span style='color: red; padding: 10px; font-family: 'Poppins', sans-serif;'>Invalid email!</span>";
+            $error_message = "<span style='color: #ab4739; border: 1px solid #ab4739;background-color:  #f8d7da; padding: 12px;'>Invalid email!</span>";
           }
           else if(strlen($pass) < 8){
-            $error_message = "<span style='color: red; padding: 10px; font-family: 'Poppins', sans-serif;'>Cannot be less than 8 characters!</span>";
+            $error_message = "<span style='color: #ab4739; border: 1px solid #ab4739;background-color:  #f8d7da; padding: 12px;'>Cannot be less than 8 characters!</span>";
             
           }
           else if($pass != $confirm_pass){
-            $error_message = "<span style='color: red; padding: 10px; font-family: 'Poppins', sans-serif;'>Passwords do not match!</span>";
+            $error_message = "<span style='color: #ab4739; border: 1px solid #ab4739;background-color:  #f8d7da; padding: 12px;'>Passwords do not match!</span>";
           }
       }
     }
     else{
-      $error_message = "<span style='color: red; padding: 10px; font-family: 'Poppins', sans-serif;'>Kindly fill in all fields!</span>";
+      $error_message = "<span style='color: #ab4739; border: 1px solid #ab4739;background-color:  #f8d7da; padding: 12px;'>Kindly fill in all fields!</span>";
     }
   }
   mysqli_close($connection);
 ?>
 
 <head>
-  <link rel="stylesheet" href="form.css">
+   <link rel="stylesheet" href="css/form.css">
 </head>
   <div class="container">
       <form action="<?php $_SERVER["PHP_SELF"]?>" method="post" class="register">
@@ -105,6 +105,6 @@
       </form>
   </div>
   
-  <script src="script.js"></script>
+  <script src="javascript/script.js"></script>
 </body>
 </html>

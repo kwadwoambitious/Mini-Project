@@ -7,8 +7,8 @@
 ?>
 
 <?php 
-    $title = "Home";
-    include('header.php');     
+    $title = "Index";
+    include('includes/header.php');     
 ?>
   
   <section class="main">
@@ -24,9 +24,9 @@
   </section>
   
   <?php 
-    include('footer.php');
+    include('includes/footer.php');
   ?>
   
-  <script src="script.js"></script>
+  <script src="javascript/script.js"></script>
 </body>
 </html>

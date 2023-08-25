@@ -6,8 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-  <link rel="stylesheet" href="home_page.css">
-  <link rel="stylesheet" href="threadlist.css">
+  <link rel="stylesheet" href="css/home_pages.css">
+  <link rel="stylesheet" href="css/threadlists.css">
   <link rel="shortcut icon" href="favicon/favicon.ico" type="image/x-icon">
   <title>Web Forum | <?php  echo $title ?></title>
 </head>
@@ -23,7 +23,7 @@
                 </a>
                 <ul class="dropdown-menu">
                   <?php 
-                      include ('user_database.php');
+                      include ('database-connection/user_database.php');
                       $sql="SELECT `category_id`, `category_name` FROM `category` Limit 5";
                       $result=mysqli_query($connection, $sql);
                       while($row=mysqli_fetch_assoc($result)){

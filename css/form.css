@@ -1,25 +1,42 @@
 body{
-  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   font-family: 'Poppins', sans-serif;
+  height: 100vh;
+}
+.container{
+  background: linear-gradient(45deg,#7e22ce98, #e604b9b9, #0164d5b9);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 90vh;
 }
 form{
   max-width: 500px;
   width: 100%;
-  border: 1px solid var(--black-color);
   padding: 10px 25px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 0 auto;
+  background-color: white;
   border-radius: 5px;
-  margin-top: 50px;
 }
-form input{
+.form-flex{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  column-gap: 40px;
+}
+.register{
+  max-width: 700px;
+  width: 100%;
+}
+form input[type="text"], input[type="email"], input[type="password"]{
   display: block;
   max-width: 450px;
   width: 100%;
@@ -29,16 +46,16 @@ form input{
   font-family: 'Poppins', sans-serif;
   border-radius: 3px;
   background-color: #eee;
-  border: 1px solid var(--black-color);
+  border: none;
 }
 form input:focus{
   outline: none;
-  border: 1px solid var(--blue-color);
+  border: 1px solid #7e22ce;
 }
-h1{
+form h1{
   font-size: 3.4rem;
-  color: var(--black-color);
-  text-align: center;
+  color: #7e22ce;
+  text-decoration: underline;
 }
 form input::placeholder{
   font-size: 1.8rem;
@@ -46,8 +63,10 @@ form input::placeholder{
 }
 form input[type="submit"]{
   border: none;
-  background-color: var(--blue-color);
+  background-color: #7e22ce;
   color: var(--white-color);
+  padding: 15px;
+  width: 100%;
   cursor: pointer;
   transition: all 0.3s linear;
   font-weight: bold;
@@ -58,20 +77,33 @@ form input[type="submit"]{
 form input[type="submit"]:hover{
   opacity: 0.7;
 }
-@media (max-width: 884px){
-  h1{
-    font-size: 2.9rem;
-  }
+form p{
+  font-size: 1.9rem;
+  margin: 5px 0;
+  color: black;
 }
 @media (max-width: 500px){
+  header{
+    display: none;
+  }
   h1{
-    font-size: 2rem;
+    font-size:3.6rem;
     text-align: center;
   }
   form{
     width: 95%;
-    margin: 0 auto;
+  }
+  .container{
+    height: 100vh;
+  }
+  .form-flex{
+    flex-direction: column;
+  }
+}
+@media (max-width: 375px){
+  .register{
     padding: 15px;
-    margin-top: 20px;
+    margin-top: 40px;
+    margin-bottom: 10px;
   }
 }

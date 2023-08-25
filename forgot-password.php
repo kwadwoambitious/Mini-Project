@@ -1,43 +1,79 @@
-<?php
-  include('user_database.php');
+<?php 
+     ob_start();
+     session_start();
+   
+     if(isset($_SESSION['username'])){
+       header('Location: home');
+     }
 
-  $full_name = null;
-  $email = null;
+    if(isset($_POST['recover'])){
+      include('database-connection/user_database.php');
+      $email = $_POST['email'];
 
-  if(isset($_POST['retrieve'])){
-    $full_name = $_POST['full_name'];
-    $email = $_POST['email'];
+      $sql = mysqli_query($connection, "SELECT * FROM users WHERE email='$email'");
+      $query = mysqli_num_rows($sql);
+      $fetch = mysqli_fetch_assoc($sql);
 
-    if($full_name && $email){
-      $sql = "SELECT * FROM register_info WHERE full_name = '$full_name' AND email = '$email'";
-      $result = mysqli_query($connection, $sql);
-
-      if(mysqli_num_rows($result) > 0){
-          while($row = mysqli_fetch_assoc($result)){
-            $db_password = $row['pass'];
-          }
-          echo "
-            <script></script>
-          ";
-          $user_found = "<strong>Password: </strong>($db_password)"; 
+      if(mysqli_num_rows($sql) <= 0){
+        ?>
+        <script>
+            alert("<?php  echo "The email is not registered! "?>");
+        </script>
+        <?php
       }
       else{
-        $user_not_found = "User cannot be found."; 
+        // generate token by binaryhexa 
+        $token = bin2hex(random_bytes(50));
+
+        //session_start ();
+        $_SESSION['token'] = $token;
+        $_SESSION['email'] = $email;
+
+        require "Mail/phpmailer/PHPMailerAutoload.php";
+        $mail = new PHPMailer;
+
+        $mail->isSMTP();
+        $mail->Host='smtp.gmail.com';
+        $mail->Port=587;
+        $mail->SMTPAuth=true;
+        $mail->SMTPSecure='tls';
+
+        // h-hotel account
+        $mail->Username='antwiebenezer784@gmail.com';
+        $mail->Password='udwoghhhbucatoji';
+
+        // send by h-hotel email
+        $mail->setFrom('antwiebenezer784@gmail.com', 'Password Reset');
+        // get email from input
+        $mail->addAddress($_POST["email"]);
+        //$mail->addReplyTo('lamkaizhe16@gmail.com');
+
+        // HTML body
+        $mail->isHTML(true);
+        $mail->Subject="Recover your password";
+        $mail->Body="<b style='font-family: sans-serif;'>Dear Valuable User,</b>
+        <p style='font-family: sans-serif;'>We have received a password reset request from our <b>Web Forum site.</b> We apologize for any inconvenience caused by your inability to recall your password. Please rest assured, we have taken care of everything. Kindly click on the reset link provided below to initiate the password reset process.</p>
+        <a href='http://localhost/Web-Forum-Mini-Project/set-new-password'>Click to reset password</a>
+        <p style='font-family: sans-serif;'>Thanks,</p>
+        <b style='font-family: sans-serif;'>Ebenezer Antwi.</b>";
+
+        if(!$mail->send()){
+            ?>
+                <script>
+                    alert("<?php echo "Submission wasn't successful."?>");
+                </script>
+            <?php
+        }else{
+            ?>
+                <script>
+                    alert("<?php echo "Link sent to your email."?>");
+                </script>
+            <?php
+        }
       }
     }
-    else if(empty($full_name) && empty($email)){
-        $name_error = "Name is required!";
-        $email_error = "Email is required!";
-    }
-    else if(empty($full_name)){
-        $name_error = "Name is required!";
-    }
-    else if(empty($email)){
-        $email_error = "Email is required!";
-    }
-  }
-  mysqli_close($connection);
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -46,23 +82,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="shortcut icon" href="favicon/favicon.ico" type="image/x-icon">
   <title>Web Forum | Forgot password</title>
-  <link rel="stylesheet" href="forgot-password.css">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="css/form.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/forgot-passwords.css">
 </head>
 <body>
-        <main>
-            <h1>FILL THE FORM TO RETRIEVE YOUR PASSWORD</h1>
-            <form action="<?php $_SERVER["PHP_SELF"]?>" method="post">
-                <input type="text" name="full_name" placeholder="Enter full name" autocomplete="off">
-                <span style="color: red; font-size: 1.7rem; display: block;"><?php echo $name_error?></span>
-
-                <input type="email" name="email" placeholder="Enter email address" autocomplete="off">
-                <span style="color: red; font-size: 1.7rem; display: block;"><?php echo $email_error?></span>
-
-                <input type="submit" name="retrieve" value="Get Password">
-                <span style="color: red; font-size: 1.7rem; display: block;"><?php echo $user_not_found ?></span>
-                <span style="color: darkgreen; font-size: 1.9rem; display: block;"><?php echo $user_found ?></span>
-            </form>
-        </main>
+        <div class="container">
+          <h1>Password Recovery</h1>
+          <form action="<?php $_SERVER["PHP_SELF"]?>" method="post" id="recovery-form">
+                  <label>Email Address:</label>
+                  <input type="email" name="email" id="email" placeholder="Enter email address">
+              <input type="submit" name="recover" value="Send" style="color: white;">
+          </form>
+        </div>
 </body>
 </html>
