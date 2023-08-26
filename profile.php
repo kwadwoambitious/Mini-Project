@@ -12,7 +12,12 @@
 ?>
     <div class="profile-container">
       <div class="profile">
-        <img src="images/noprofil.jpg">
+      <h1><?php 
+         $initial =  substr($_SESSION['first_name'], 0, 1);
+         $initial2 =  substr($_SESSION['last_name'], 0, 1);
+         echo $initial;
+         echo $initial2;
+       ?></h1>
         <h3><?php echo $_SESSION['username']?></h3>
         <p><?php echo $_SESSION['email']?></p>
         <a href="update_profile">Edit Profile</a>

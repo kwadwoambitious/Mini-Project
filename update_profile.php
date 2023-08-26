@@ -94,7 +94,12 @@
 <body>
    <div class="profile-update-container">
     <div class="update-profile">
-       <img src="images/noprofil.jpg">
+       <h1><?php 
+         $initial =  substr($_SESSION['first_name'], 0, 1);
+         $initial2 =  substr($_SESSION['last_name'], 0, 1);
+         echo $initial;
+         echo $initial2;
+       ?></h1>
        <div class="profile-info">
         <form action="<?php $_SERVER["PHP_SELF"]?>" method="POST">
         <span><?php echo $error_message?></span>
