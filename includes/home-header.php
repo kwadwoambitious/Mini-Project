@@ -16,10 +16,10 @@
 </head>
 <body>
       <header>
-          <a href="./" style="text-decoration: none;"><h1><span>WebForum</h1></a>
+          <a href="home" style="text-decoration: none;"><h1><span>WebForum</h1></a>
           <nav>
             <ul class="main-menu">
-              <li><a href="home" class="menu-item">FORUM</a></li>
+              <li><a href="home" class="menu-item">POSTS</a></li>
               <div class="dropdown" style="display: inline-block;">
                 <a class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                   CATEGORIES
@@ -35,7 +35,7 @@
                   ?>
                 </ul>
 	            </div>
-              <li><a href="my-posts" class="menu-item">MY POSTS</a></li>
+              <li class="active"><a href="my-posts" class="menu-item">MY POSTS</a></li>
               <li><a href="resources" class="menu-item">RESOURCES</a></li>
               <li><a href="profile" class="menu-item">PROFILE</a></li>
               

@@ -13,8 +13,8 @@
   
       <main class="home">
         <h1>My Posts</h1>
+        <hr>
       </main>
-      <script src="javascript/script.js"></script>
 </body>
 </html>
 

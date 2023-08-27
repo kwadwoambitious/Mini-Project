@@ -10,3 +10,4 @@ document.querySelectorAll(".menu-item").forEach(n => n.addEventListener("click",
     mainMenu.classList.remove("active");
     
 }));
+

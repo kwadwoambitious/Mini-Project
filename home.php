@@ -11,6 +11,7 @@
 ?>
       <main class="home">
         <h1 class="heading">Recent Posts</h1>
+        <hr>
       </main>
 
 <?php
@@ -34,7 +35,6 @@
     $initial2 =  substr($post_last_name, 0, 1);
 
     echo '
-      
         <link rel="stylesheet" href="css/post.css" />
             <div class="posts my-posts">
             <div class="container">

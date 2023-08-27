@@ -27,14 +27,39 @@ header h1{
   color: #7e22ce; 
 }
 nav ul li{
+  margin-left: 30px;
+  margin-right: 30px;
   display: inline;
   list-style: none;
+  position: relative;
+}
+nav ul li:before{
+  content: '';
+  background-color: #7e22ce;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 0;
+  transition: 0.3s ease-in;
+}
+nav ul li:hover:before{
+  content: '';
+  background-color: #7e22ce;
+  position: absolute;
+  left: 0;
+  bottom: -1rem;
+  height: 3px;
+  width: 100%;
 }
 nav .dropdown-toggle{
   color: black; 
   font-size: 2rem; 
   text-decoration: none; 
   cursor: pointer;
+}
+nav .dropdown-toggle:hover{
+  color: #7e22ce;
 }
 nav .dropdown-menu{
   background-color: #7e22ce ;
@@ -48,15 +73,14 @@ nav .dropdown-menu{
   background-color: white;
   color: black;
 }
-nav li .menu-item{
+ul li a{
   text-decoration: none;
   font-size: 2rem;
   color: black;
-  margin-left: 30px;
-  margin-right: 30px;
+  position: relative;
 }
-nav li .menu-item:hover{
-  border-bottom: 1px solid #7e22ce ;
+ul li a:hover{
+  color: #7e22ce;
 }
 .menu-bar{
   display: none;
@@ -197,7 +221,8 @@ main #create_post{
   border-radius: 50%;
   margin-bottom: 30px;
   background-color: #7e22ce;
-  box-shadow: 1px 2px 5px 4px black;
+  box-shadow: 1px 1px 5px 4px black;
+  font-family: 'Bricolage Grotesque', sans-serif;
   color: white;
 }
 .profile h3{
