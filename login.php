@@ -79,7 +79,8 @@
 </head>
         <div class="container">
           <form action="<?php $_SERVER["PHP_SELF"]?>" method="post">
-              <h1>SIGN IN</h1>
+              <h1>Sign In</h1>
+              <hr>
               <span class="error"><?php echo $error_message?></span>
               <input type="text" name="username" placeholder="Enter username" value="<?php echo $username?>">
               

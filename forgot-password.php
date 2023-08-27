@@ -51,11 +51,11 @@
         // HTML body
         $mail->isHTML(true);
         $mail->Subject="Recover your password";
-        $mail->Body="<b style='font-family: sans-serif;'>Dear Valuable User,</b>
-        <p style='font-family: sans-serif;'>We have received a password reset request from our <b>Web Forum site.</b> We apologize for any inconvenience caused by your inability to recall your password. Please rest assured, we have taken care of everything. Kindly click on the reset link provided below to initiate the password reset process.</p>
-        <a href='http://localhost/Web-Forum-Mini-Project/set-new-password'>Click to reset password</a>
-        <p style='font-family: sans-serif;'>Thanks,</p>
-        <b style='font-family: sans-serif;'>Ebenezer Antwi.</b>";
+        $mail->Body="<b style='font-family: sans-serif; text-align: center; color: #7e22ceab; font-size: 2rem;'>Dear Valuable User,</b>
+        <p style='font-family: sans-serif; font-size: 1.1rem;'>We have received a password reset request from our <b>Web Developers Community Forum.</b> We apologize for any inconvenience caused by your inability to recall your password. Please rest assured, we have taken care of everything. Kindly click on the reset link provided below to initiate the password reset process.</p>
+        <a href='http://localhost/Web-Forum-Mini-Project/set-new-password' style='font-family: sans-serif; font-size: 1rem;'>Click to reset password</a>
+        <p style='font-family: sans-serif; font-size: 1.1rem;'><b>Best regards,</b></p>
+        <b style='font-family: sans-serif; font-size: 1.1rem;'>Team Ebenezer.</b>";
 
         if(!$mail->send()){
             ?>
@@ -66,7 +66,7 @@
         }else{
             ?>
                 <script>
-                    alert("<?php echo "Link sent to your email."?>");
+                    alert("<?php echo "Reset link sent to your email."?>");
                 </script>
             <?php
         }

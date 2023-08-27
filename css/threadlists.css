@@ -9,10 +9,9 @@ html{
 .main{
   width: 1200px;
   max-width: 95%;
-  background-color: #7e22ce;
   margin: 20px auto 50px auto;
   border-radius: 5px;
-  padding: 40px;
+  padding: 40px 0;
   text-align: center;
 }
 .main h1{
@@ -21,7 +20,31 @@ html{
 }
 .main p{
   font-size: 2.6rem;
+  text-align: justify;
   line-height: 1.5;
-  color: white;
   margin-top: 30px;;
+}
+main hr:first-of-type{
+  margin-bottom: 30px;
+}
+main hr:last-of-type{
+  margin: 0 auto;
+  width: 300px;
+  display: block;
+  background-color: #7e22ce;
+  height: 3px;
+  border: none;
+  margin-bottom: 40px;
+  font-weight: 100;
+}
+@media (max-width: 700px){
+  .main{
+    padding: 10px;
+  }
+  .main h1{
+    font-size: 4rem;
+  }
+  main h3{
+    text-align: center;
+  }
 }

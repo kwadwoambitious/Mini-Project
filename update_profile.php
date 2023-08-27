@@ -41,7 +41,7 @@
                     WHERE id = '$id'
                 ";
                 mysqli_query($connection, $sql);
-                $success_message = "<span style='color: #025f02; border: 1px solid #025f02;background-color:  #025f028a; padding: 12px;'>Changes saved!<br> Re-login with the new info to see the changes!</span>";
+                $success_message = "<span style='color: #025f02; border: 1px solid #025f02;background-color:  #648b648a; padding: 12px;'>Changes saved!<br> Re-login with the new info to see the changes!</span>";
                 
               }
               else{
@@ -92,6 +92,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/home_pages.css">
+  <link rel="stylesheet" href="css/update-profile.css">
   <link rel="shortcut icon" href="favicon/favicon.ico" type="image/x-icon">
   <title>Web Forum | Profile Update</title>
 </head>
@@ -130,11 +131,11 @@
        
         <div class="profile-flex">
           <label>Your old password:
-            <input type="password" name="password" placeholder="Enter password">
+            <input type="password" name="password" placeholder="Enter old password">
           </label>
           
           <label>Your new password:
-          <input type="password" name="new_password" placeholder="new password">
+          <input type="password" name="new_password" placeholder="Enter new password">
           </label>
         </div>
         <input type="submit" name="update" value="Save Changes" class="updateBtn">

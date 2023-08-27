@@ -79,7 +79,8 @@
 </head>
   <div class="container">
       <form action="<?php $_SERVER["PHP_SELF"]?>" method="post" class="register">
-          <h1>SIGN UP</h1>
+          <h1>Sign Up</h1>
+          <hr>
         <span class="error"><?php echo $error_message?></span>
 
         <div class="form-flex">

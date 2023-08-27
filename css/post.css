@@ -1,15 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Barlow&family=Big+Shoulders+Display:wght@700&family=Inter:wght@400;700&family=Kanit:wght@300&family=Karla:wght@400;700&family=Labrada:ital,wght@1,300&family=Lexend+Deca&family=Nunito:ital,wght@1,200&family=Open+Sans&family=Playfair+Display:wght@900&family=Poppins&family=Quicksand:wght@300;500&family=Raleway:wght@400;700&family=Roboto+Mono:wght@700&family=Tilt+Neon&family=Titillium+Web:wght@700&family=Ubuntu:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@10..48,200;10..48,300;10..48,400;10..48,500;10..48,600;10..48,700;10..48,800&display=swap');
 
 body{
-  font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: 'Bricolage Grotesque', sans-serif;
 }
 html{
   font-size: 62.5%;
 }
 .posts{
   margin: 0 auto;
-  margin-top: 20px; 
-  margin-bottom: 30px;
+  /* margin-top: 20px;  */
+  /* margin-bottom: 30px; */
   max-width: 700px; 
   width: 95%;
 }
@@ -22,10 +22,34 @@ html{
   box-shadow: 1px 2px 5px 1px black;
   border-radius: 10px; 
   padding: 20px; 
-  margin-bottom: 70px;
+  margin-bottom: 50px;
+}
+.post-info{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.post-info .tag h1{
+  color: rgb(110, 110, 110);
+  font-size: 1.3rem;
+  box-shadow: 1px 2px 5px 1px black;
+  border-radius: 30px;
+  padding: 6px;
 }
 .user .user-img{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
   margin-right: 10px;
+  width: 60px;
+  height: 60px;
+  color: white;
+  box-shadow: 1px 2px 5px 1px black;
+  background-color: #7e22ce;
+}
+.user-img h1{
+  font-size: 2.7rem;
 }
 .user .fa-solid{
   font-size: 2.5rem;
@@ -35,6 +59,7 @@ html{
 }
 .name-and-date p{
   font-size: 2rem;
+  margin-bottom: 0;
 }
 .name-and-date span{
   font-size: 1.4rem; 
@@ -53,4 +78,5 @@ html{
 }
 .my-posts{
   margin: 0 auto; max-width: 700px; width: 95%;
+  margin-bottom: 30px;
 }

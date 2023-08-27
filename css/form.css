@@ -1,9 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@10..48,200;10..48,300;10..48,400;10..48,500;10..48,600;10..48,700;10..48,800&display=swap');
+
 body{
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Bricolage Grotesque', sans-serif;
   height: 100vh;
 }
 .container{
@@ -31,6 +33,7 @@ form{
   align-items: center;
   justify-content: space-between;
   column-gap: 40px;
+  width: 100%;
 }
 .register{
   max-width: 700px;
@@ -43,23 +46,31 @@ form input[type="text"], input[type="email"], input[type="password"]{
   margin: 9px 0;
   padding: 15px;
   font-size: 1.8rem;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Bricolage Grotesque', sans-serif;
   border-radius: 3px;
   background-color: #eee;
   border: none;
+  border: 1px solid #7e22ce;
 }
 form input:focus{
   outline: none;
-  border: 1px solid #7e22ce;
 }
 form h1{
   font-size: 3.4rem;
   color: #7e22ce;
-  text-decoration: underline;
+}
+form hr{
+  width: 80px;
+  display: block;
+  background-color: #7e22ce;
+  height: 2px;
+  border: none;
+  margin-bottom: 20px;
+  font-weight: 100;
 }
 form input::placeholder{
   font-size: 1.8rem;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Bricolage Grotesque', sans-serif;
 }
 form input[type="submit"]{
   border: none;
@@ -72,7 +83,8 @@ form input[type="submit"]{
   font-weight: bold;
   font-size: 1.9rem;
   transition: all 0.5s ease-in-out;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Bricolage Grotesque', sans-serif;
+  margin-top: 10px;
 }
 form input[type="submit"]:hover{
   opacity: 0.7;

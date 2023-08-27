@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Barlow&family=Big+Shoulders+Display:wght@700&family=Inter:wght@400;700&family=Kanit:wght@300&family=Karla:wght@400;700&family=Labrada:ital,wght@1,300&family=Lexend+Deca&family=Nunito:ital,wght@1,200&family=Open+Sans&family=Playfair+Display:wght@900&family=Poppins&family=Quicksand:wght@300;500&family=Raleway:wght@400;700&family=Roboto+Mono:wght@700&family=Tilt+Neon&family=Titillium+Web:wght@700&family=Ubuntu:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@10..48,200;10..48,300;10..48,400;10..48,500;10..48,600;10..48,700;10..48,800&display=swap');
 *{
   margin: 0;
   padding: 0;
@@ -9,9 +9,8 @@ html{
   font-size: 62.5%;
 }
 body{
-  font-family: 'Poppins', sans-serif;
-  height: 100vh;
-  position: relative;
+ font-family: 'Bricolage Grotesque', sans-serif;
+  /* position: relative; */
   overflow: auto;
 }
 header{
@@ -87,7 +86,7 @@ nav li .menu-item:hover{
   text-align: center;
 }
 main{
-  padding: 10px 0;
+  padding-bottom: 10px;
   margin: 0 auto;
   width: 1200px;
   max-width: 95%;
@@ -95,10 +94,9 @@ main{
 }
 main h3, h4 , .heading{
   font-size: 2.4rem;
-  margin-top: 30px;
 }
 main h3, .heading, .home h1{
-  color: black;
+  color: #7e22ce;
   font-size: 5rem;
 }
 main #topic_title{
@@ -107,24 +105,23 @@ main #topic_title{
   font-size: 1.9rem;
   border: none;
   background-color: rgb(237, 234, 234);
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Bricolage Grotesque', sans-serif;
   border-radius: 3px;
   margin-bottom: 30px;
   color: black;
+  border: 1px solid #7e22ce;
 }
 main #topic_title:focus{
   outline: none;
-  border: 1px solid #0164d5;
 }
 main input::placeholder{
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Bricolage Grotesque', sans-serif;
   font-size: 1.9rem;
 }
 main p{
-  font-size: 4rem;
+  font-size: 3rem;
   text-align: center;
   color: rgb(110, 110, 110);
-  padding-top: 70px;
 }
 main #topic_body{
   width: 100%;
@@ -134,24 +131,24 @@ main #topic_body{
   background-color: rgb(237, 234, 234);
   border-radius: 3px;
   font-size: 1.9rem;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Bricolage Grotesque', sans-serif;
   padding: 14px 20px;
+  border: 1px solid #7e22ce;
 }
 main #topic_body:focus{
   outline: none;
-  border: 1px solid #0164d5;
 }
 main #topic_body::placeholder{
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Bricolage Grotesque', sans-serif;
   font-size: 1.9rem;
 }
 main #create_post{
-  background-color: #0164d5;
+  background-color: #7e22ce;
   color: white;
   border: none;
   padding: 3px 20px;
   font-size: 1.9rem;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Bricolage Grotesque', sans-serif;
   cursor: pointer;
   margin-bottom: 50px;
 }
@@ -162,6 +159,7 @@ main #create_post{
   text-align: center;
   padding: 60px 40px;
   font-size: 60px;
+  font-family: 'Bricolage Grotesque', sans-serif;
 }
 .res-container .contents{
   display: flex;
@@ -194,12 +192,12 @@ main #create_post{
   justify-content: center;
   font-size: 10rem;
   margin: 0 auto;
-  border: 5px solid black;
   width: 200px;
   height: 200px;
   border-radius: 50%;
   margin-bottom: 30px;
   background-color: #7e22ce;
+  box-shadow: 1px 2px 5px 4px black;
   color: white;
 }
 .profile h3{
@@ -254,7 +252,7 @@ main #create_post{
   width: 100%;
   padding: 10px;
   font-size: 2rem;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Bricolage Grotesque', sans-serif;
   border-radius: 3px;
   background-color: #eee;
   color: black;
@@ -291,9 +289,6 @@ form span{
 }
 label{
   font-size: 1.8rem;
-}
-form{
-  position: relative;
   width: 100%;
 }
 @media (max-width: 900px){
@@ -301,7 +296,7 @@ form{
         text-align: justify;
     }
 }
-@media (max-width: 850px){
+@media (max-width:884px){
     header{
         justify-content: space-between;
         padding: 10px 20px;
@@ -386,9 +381,6 @@ form{
         font-size: 1.4rem;
         text-align: justify;
     }
-    .profile-update-container{
-     height: inherit;
-    }
     .update-profile{
       margin: 100px auto;
     }
@@ -403,6 +395,9 @@ form{
     .about h1{
         font-size: 2.8rem;
     }
+    .home h1{
+      font-size: 4rem;
+    }
 }
 @media (max-width: 375px){
     .update-profile{
@@ -414,7 +409,7 @@ form{
         padding: 0 10px;
         font-size: 2rem;
         width: 140px;
-}
+    }
     header h1{
         font-size: 2.5rem;
     }
