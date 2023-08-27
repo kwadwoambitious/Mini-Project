@@ -1,5 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@10..48,200;10..48,300;10..48,400;10..48,500;10..48,600;10..48,700;10..48,800&display=swap');
 
+:root{
+  --bg-blue-color: #3b3692;
+  --pink-color: #ff00cc;
+  --blue-color: #7e22ce;
+  --white-color: #ffffff;
+}
 *{
   margin: 0;
   padding: 0;
@@ -16,7 +22,7 @@ body{
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(100deg, #3b3692,#ff00cc);
+  background: linear-gradient(100deg, var(--bg-blue-color),var(--pink-color));
   width: 100vw;
   height: 100vh;
   position: fixed;
@@ -25,7 +31,7 @@ body{
 }
 .modal{
   position: relative;
-  background-color: #fff;
+  background-color: var(--white-color);
   width: 500px;
   max-width: 90%;
   text-align: center;
@@ -51,9 +57,9 @@ body{
 .modal a{
   padding: 10px 17px;
   border-radius: 30px;
-  background-color: #7e22ce;
+  background-color: var(--blue-color);
   text-decoration: none;
-  color: white;
+  color: var(--white-color);
   font-size: 2rem;
   font-family: 'Bricolage Grotesque', sans-serif;
 }

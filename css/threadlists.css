@@ -1,3 +1,6 @@
+:root{
+  --blue-color: #7e22ce;
+}
 *{
   margin: 0;
   padding: 0;
@@ -31,7 +34,7 @@ main hr:last-of-type{
   margin: 0 auto;
   width: 300px;
   display: block;
-  background-color: #7e22ce;
+  background-color: var(--blue-color);
   height: 3px;
   border: none;
   margin-bottom: 40px;

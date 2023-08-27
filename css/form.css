@@ -1,15 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@10..48,200;10..48,300;10..48,400;10..48,500;10..48,600;10..48,700;10..48,800&display=swap');
 
+:root{
+  --bg-blue-color: #7e22ce98;
+  --blue-color: #7e22ce;
+  --pink-color: #e604b9b9;
+  --bg-light-blue-color: #0164d5b9;
+  --white-color: #ffffff;
+  --black-color: #000000;
+  --input-field-bg-color: #eee;
+}
 body{
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   font-family: 'Bricolage Grotesque', sans-serif;
-  height: 100vh;
 }
 .container{
-  background: linear-gradient(45deg,#7e22ce98, #e604b9b9, #0164d5b9);
+  background: linear-gradient(45deg, var(--bg-blue-color), var(--pink-color), var(--bg-light-blue-color));
   width: 100%;
   display: flex;
   align-items: center;
@@ -25,7 +33,7 @@ form{
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: white;
+  background-color: var(--white-color);
   border-radius: 5px;
 }
 .form-flex{
@@ -48,21 +56,21 @@ form input[type="text"], input[type="email"], input[type="password"]{
   font-size: 1.8rem;
   font-family: 'Bricolage Grotesque', sans-serif;
   border-radius: 3px;
-  background-color: #eee;
+  background-color: var(--input-field-bg-color);
   border: none;
-  border: 1px solid #7e22ce;
+  border: 1px solid var(--blue-color);
 }
 form input:focus{
   outline: none;
 }
 form h1{
   font-size: 3.4rem;
-  color: #7e22ce;
+  color: var(--blue-color);
 }
 form hr{
   width: 80px;
   display: block;
-  background-color: #7e22ce;
+  background-color: var(--blue-color);
   height: 2px;
   border: none;
   margin-bottom: 20px;
@@ -74,7 +82,7 @@ form input::placeholder{
 }
 form input[type="submit"]{
   border: none;
-  background-color: #7e22ce;
+  background-color: var(--blue-color);
   color: var(--white-color);
   padding: 15px;
   width: 100%;
@@ -92,7 +100,7 @@ form input[type="submit"]:hover{
 form p{
   font-size: 1.9rem;
   margin: 5px 0;
-  color: black;
+  color: var(--black-color);
 }
 @media (max-width: 500px){
   header{
@@ -117,5 +125,10 @@ form p{
     padding: 15px;
     margin-top: 40px;
     margin-bottom: 10px;
+  }
+}
+@media(max-width: 320px){
+  .register{
+   margin-top: 180px;
   }
 }

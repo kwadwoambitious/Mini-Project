@@ -1,4 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@10..48,200;10..48,300;10..48,400;10..48,500;10..48,600;10..48,700;10..48,800&display=swap');
+
+:root{
+  --blue-color: #7e22ce;
+  --white-color: #ffffff;
+  --black-color: #000000;
+  --input-field-bg-color: #eee;
+  --update-btn-color: #d54e31;
+}
 *{
   margin: 0;
   padding: 0;
@@ -9,8 +17,7 @@ html{
   font-size: 62.5%;
 }
 body{
- font-family: 'Bricolage Grotesque', sans-serif;
-  /* position: relative; */
+  font-family: 'Bricolage Grotesque', sans-serif;
   overflow: auto;
 }
 header{
@@ -20,11 +27,11 @@ header{
   padding: 20px 0;
   top: 0;
   width: 100%;
-  box-shadow: 1px 1px 7px 1px #7e22ce;
+  box-shadow: 1px 1px 7px 1px var(--blue-color);
 }
 header h1{
   font-size: 3.7rem;
-  color: #7e22ce; 
+  color: var(--blue-color); 
 }
 nav ul li{
   margin-left: 30px;
@@ -35,7 +42,7 @@ nav ul li{
 }
 nav ul li:before{
   content: '';
-  background-color: #7e22ce;
+  background-color: var(--blue-color);
   position: absolute;
   left: 0;
   bottom: 0;
@@ -45,7 +52,7 @@ nav ul li:before{
 }
 nav ul li:hover:before{
   content: '';
-  background-color: #7e22ce;
+  background-color: var(--blue-color);
   position: absolute;
   left: 0;
   bottom: -1rem;
@@ -53,34 +60,34 @@ nav ul li:hover:before{
   width: 100%;
 }
 nav .dropdown-toggle{
-  color: black; 
+  color: var(--black-color); 
   font-size: 2rem; 
   text-decoration: none; 
   cursor: pointer;
 }
 nav .dropdown-toggle:hover{
-  color: #7e22ce;
+  color: var(--blue-color);
 }
 nav .dropdown-menu{
-  background-color: #7e22ce ;
+  background-color: var(--blue-color) ;
 }
 .dropdown-menu .dropdown-item{
-  color: white; 
+  color: var(--white-color); 
   font-size: 2rem; 
   padding: 20px 30px;
 }
 .dropdown-menu .dropdown-item:hover{
-  background-color: white;
-  color: black;
+  background-color: var(--white-color);
+  color: var(--black-color);
 }
 ul li a{
   text-decoration: none;
   font-size: 2rem;
-  color: black;
+  color: var(--black-color);
   position: relative;
 }
 ul li a:hover{
-  color: #7e22ce;
+  color: var(--blue-color);
 }
 .menu-bar{
   display: none;
@@ -93,7 +100,7 @@ ul li a:hover{
   margin: 5px 0;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
-  background: #7e22ce;
+  background: var(--blue-color);
   border-radius: 5px;
 }
 .bar1{
@@ -120,7 +127,7 @@ main h3, h4 , .heading{
   font-size: 2.4rem;
 }
 main h3, .heading, .home h1{
-  color: #7e22ce;
+  color: var(--blue-color);
   font-size: 5rem;
 }
 main #topic_title{
@@ -132,8 +139,8 @@ main #topic_title{
   font-family: 'Bricolage Grotesque', sans-serif;
   border-radius: 3px;
   margin-bottom: 30px;
-  color: black;
-  border: 1px solid #7e22ce;
+  color: var(--black-color);
+  border: 1px solid var(--blue-color);
 }
 main #topic_title:focus{
   outline: none;
@@ -145,7 +152,7 @@ main input::placeholder{
 main p{
   font-size: 3rem;
   text-align: center;
-  color: rgb(110, 110, 110);
+  color: #6e6e6e;
 }
 main #topic_body{
   width: 100%;
@@ -157,7 +164,7 @@ main #topic_body{
   font-size: 1.9rem;
   font-family: 'Bricolage Grotesque', sans-serif;
   padding: 14px 20px;
-  border: 1px solid #7e22ce;
+  border: 1px solid var(--blue-color);
 }
 main #topic_body:focus{
   outline: none;
@@ -167,8 +174,8 @@ main #topic_body::placeholder{
   font-size: 1.9rem;
 }
 main #create_post{
-  background-color: #7e22ce;
-  color: white;
+  background-color: var(--blue-color);
+  color: var(--white-color);
   border: none;
   padding: 3px 20px;
   font-size: 1.9rem;
@@ -178,12 +185,21 @@ main #create_post{
 }
 .res-container{
   width: 100%;
+  padding-bottom: 50px;
 }
 .res-container h1{
   text-align: center;
-  padding: 60px 40px;
+  padding: 40px 40px 0 40px;
   font-size: 60px;
+  color: var(--blue-color);
   font-family: 'Bricolage Grotesque', sans-serif;
+}
+.res-container hr{
+  width: 80px;
+  margin: 0 auto;
+  margin-bottom: 30px;
+  background-color: var(--blue-color);
+  height: 3px;
 }
 .res-container .contents{
   display: flex;
@@ -208,7 +224,7 @@ main #create_post{
   max-width: 450px;
   width: 100%;
   padding: 30px 20px;
-  box-shadow: 1px 2px 5px 1px black;
+  box-shadow: 1px 2px 5px 1px var(--black-color);
 }
 .profile h1, .update-profile h1{
   display: flex;
@@ -220,10 +236,10 @@ main #create_post{
   height: 200px;
   border-radius: 50%;
   margin-bottom: 30px;
-  background-color: #7e22ce;
-  box-shadow: 1px 1px 5px 4px black;
+  background-color: var(--blue-color);
+  box-shadow: 1px 1px 5px 4px var(--black-color);
   font-family: 'Bricolage Grotesque', sans-serif;
-  color: white;
+  color: var(--white-color);
 }
 .profile h3{
   font-size: 3rem;
@@ -235,18 +251,18 @@ main #create_post{
   font-size: 2rem;
   display: block;
   text-decoration: none;
-  color: white;
+  color: var(--white-color);
   margin-top: 15px;
   padding: 15px;
   border-radius: 5px;
 }
 .profile a{
-  background-color: #7e22ce;
+  background-color: var(--blue-color);
 }
 .profile input{
   width: 100%;
   border: none;
-  background-color: #d54e31;
+  background-color: var(--update-btn-color);
 }
 .profile-update-container{
   background-color: #edeeec;
@@ -260,7 +276,7 @@ main #create_post{
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: #fdfefd;
-  box-shadow: 1px 2px 5px 1px black;
+  box-shadow: 1px 2px 5px 1px var(--black-color);
   max-width: 800px;
   width: 100%;
   padding: 30px 20px;
@@ -279,18 +295,18 @@ main #create_post{
   font-size: 2rem;
   font-family: 'Bricolage Grotesque', sans-serif;
   border-radius: 3px;
-  background-color: #eee;
-  color: black;
+  background-color: var(--input-field-bg-color);
+  color: var(--black-color);
   border: none;
-  border: 1px solid #7e22ce;
+  border: 1px solid var(--blue-color);
 }
 form .updateBtn{
   display: block;
   width: 100%;
   border: none;
   padding: 12px;
-  background-color: #7e22ce;
-  color: white;
+  background-color: var(--blue-color);
+  color: var(--white-color);
 }
 form .updateClose{
   margin-top: 10px;
@@ -299,8 +315,8 @@ form .updateClose{
   text-align: center;
   padding: 12px;
   font-size: 2rem;
-  background-color: #d54e31;
-  color: white;
+  background-color: var(--update-btn-color);
+  color: var(--white-color);
   text-decoration: none;
   border-radius: 3px;
 }
@@ -324,7 +340,7 @@ label{
 @media (max-width:884px){
     header{
         justify-content: space-between;
-        padding: 10px 20px;
+        padding: 15px 20px;
     }
     header h1{
         font-size: 3.3rem;
@@ -338,33 +354,33 @@ label{
     .menu-bar.active .bar:nth-child(1){
         width: 25px;
         transform: translateY(8px) rotate(45deg);
-        background: #fff;
+        background: var(--white-color);
     }
     .menu-bar.active .bar:nth-child(3){
         width: 25px;
         transform: translateY(-8px) rotate(-45deg);
-        background: #fff;
+        background: var(--white-color);
     }
     nav .dropdown-toggle{
-      color: white; 
+      color: var(--white-color); 
       font-size: 2rem; 
       text-decoration: none; 
       cursor: pointer;
     }
     nav .dropdown-menu{
-      background-color: white;
+      background-color: var(--white-color);
     }
     .dropdown-menu .dropdown-item{
-      color: #7e22ce; 
+      color: var(--blue-color); 
       font-size: 2rem; 
       padding: 10px 25px;
     }
     .dropdown-menu .dropdown-item:hover{
-      background-color: black;
-      color: white;
+      background-color: var(--black-color);
+      color: var(--white-color);
     }
     nav .main-menu{
-      background: #7e22ce;
+      background: var(--blue-color);
       display: flex;
       flex-direction: column;
       position: fixed;
@@ -383,10 +399,16 @@ label{
     nav .main-menu a{
         font-size: 2.8rem;
         line-height: 2.5;
-        color: white;
+        color: var(--white-color);
     }
     nav .main-menu .menu-item:hover{
-        border-bottom: 1px solid white;
+        border-bottom: 1px solid var(--white-color);
+    }
+    ul li a:hover{
+      color: var(--white-color);
+    }
+    nav .dropdown-toggle:hover{
+      color: var(--white-color);
     }
 }
 @media (max-width: 630px){
